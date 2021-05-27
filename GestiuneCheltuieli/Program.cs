@@ -2,14 +2,22 @@
 using System.Collections;
 using NivelAccesDate;
 using Librarie;
+using System.Windows.Forms;
 
 
 namespace GestiuneCheltuieli
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
+            
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Interfata());
+
             ArrayList utilizatori = new ArrayList();
 
             IStocareData adminUtilizator = StocareFactory.GetAdministratorStocare();
@@ -169,7 +177,7 @@ namespace GestiuneCheltuieli
             Console.WriteLine("Alegeti moneda:");
             Console.WriteLine("1-Euro\n2-Lei\n3-Dolar");
             b = Int32.Parse(Console.ReadLine());
-            Utilizator u1 = new Utilizator(nume, _prenume, _parola,b);
+            Utilizator u1 = new Utilizator(nume, _prenume, _parola);
             u1.SetInfo(infor);
             return u1;
         }

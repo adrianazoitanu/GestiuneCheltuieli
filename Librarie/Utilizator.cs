@@ -38,7 +38,7 @@ namespace Librarie
         public string Parola { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }
-        public int Bancn { get; set; }
+        public Bancnota Bancn { get; set; }
         public int IdUtilizator { get; set; }
         public string NumeComplet { get { return Nume + " " + Prenume; } }
         public Utilizator()
@@ -49,7 +49,7 @@ namespace Librarie
             Bancn = 0;
         }
         //laborator2, ex1
-        public Utilizator(string _nume, string _prenume, string _parola, double[] _info, int banc)
+        public Utilizator(string _nume, string _prenume, string _parola, double[] _info, Bancnota banc)
         {
             Nume = _nume;
             Prenume = _prenume;
@@ -60,13 +60,16 @@ namespace Librarie
             IdUtilizator = IdUltimUtilizator;
             Bancn = banc;
         }
-
-        public Utilizator(string nume, string prenume, string parola,int banc)
+        public string afisInfo()
+        {
+            return $"{informatii[0]}{informatii[1]}{informatii[2]}";
+        }
+        public Utilizator(string nume, string prenume, string parola)
         {
             Nume = nume;
             Prenume = prenume;
             Parola = parola;
-            Bancn = banc;
+          
             IdUltimUtilizator++;
             IdUtilizator = IdUltimUtilizator;
         }
