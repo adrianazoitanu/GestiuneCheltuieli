@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +40,7 @@ namespace Librarie
         public string Prenume { get; set; }
         public Bancnota Bancn { get; set; }
         public int IdUtilizator { get; set; }
+        public ArrayList Cheltuieli { get; set; }
         public string NumeComplet { get { return Nume + " " + Prenume; } }
         public Utilizator()
         {

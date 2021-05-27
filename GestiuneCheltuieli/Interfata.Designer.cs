@@ -51,6 +51,12 @@ namespace GestiuneCheltuieli
             this.lblParola = new System.Windows.Forms.Label();
             this.txtParola = new System.Windows.Forms.TextBox();
             this.lblMesaj = new System.Windows.Forms.Label();
+            this.cbxCadouri = new System.Windows.Forms.CheckBox();
+            this.cbxAnimal = new System.Windows.Forms.CheckBox();
+            this.cbxIesiri = new System.Windows.Forms.CheckBox();
+            this.cbxHaine = new System.Windows.Forms.CheckBox();
+            this.cbxCosmetice = new System.Windows.Forms.CheckBox();
+            this.lblExpenses = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // rtbAfisare
@@ -139,7 +145,7 @@ namespace GestiuneCheltuieli
             // rtbDolar
             // 
             this.rtbDolar.AutoSize = true;
-            this.rtbDolar.Location = new System.Drawing.Point(127, 329);
+            this.rtbDolar.Location = new System.Drawing.Point(83, 346);
             this.rtbDolar.Name = "rtbDolar";
             this.rtbDolar.Size = new System.Drawing.Size(63, 21);
             this.rtbDolar.TabIndex = 27;
@@ -150,7 +156,7 @@ namespace GestiuneCheltuieli
             // rtbLei
             // 
             this.rtbLei.AutoSize = true;
-            this.rtbLei.Location = new System.Drawing.Point(127, 302);
+            this.rtbLei.Location = new System.Drawing.Point(83, 319);
             this.rtbLei.Name = "rtbLei";
             this.rtbLei.Size = new System.Drawing.Size(48, 21);
             this.rtbLei.TabIndex = 26;
@@ -161,7 +167,7 @@ namespace GestiuneCheltuieli
             // rtbEuro
             // 
             this.rtbEuro.AutoSize = true;
-            this.rtbEuro.Location = new System.Drawing.Point(127, 275);
+            this.rtbEuro.Location = new System.Drawing.Point(83, 292);
             this.rtbEuro.Name = "rtbEuro";
             this.rtbEuro.Size = new System.Drawing.Size(59, 21);
             this.rtbEuro.TabIndex = 25;
@@ -172,7 +178,7 @@ namespace GestiuneCheltuieli
             // lblValuta
             // 
             this.lblValuta.AutoSize = true;
-            this.lblValuta.Location = new System.Drawing.Point(66, 252);
+            this.lblValuta.Location = new System.Drawing.Point(22, 269);
             this.lblValuta.Name = "lblValuta";
             this.lblValuta.Size = new System.Drawing.Size(48, 17);
             this.lblValuta.TabIndex = 24;
@@ -248,11 +254,77 @@ namespace GestiuneCheltuieli
             this.lblMesaj.Size = new System.Drawing.Size(0, 17);
             this.lblMesaj.TabIndex = 40;
             // 
+            // cbxCadouri
+            // 
+            this.cbxCadouri.AutoSize = true;
+            this.cbxCadouri.Location = new System.Drawing.Point(210, 292);
+            this.cbxCadouri.Name = "cbxCadouri";
+            this.cbxCadouri.Size = new System.Drawing.Size(79, 21);
+            this.cbxCadouri.TabIndex = 41;
+            this.cbxCadouri.Text = "Cadouri";
+            this.cbxCadouri.UseVisualStyleBackColor = true;
+            this.cbxCadouri.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // cbxAnimal
+            // 
+            this.cbxAnimal.AutoSize = true;
+            this.cbxAnimal.Location = new System.Drawing.Point(210, 320);
+            this.cbxAnimal.Name = "cbxAnimal";
+            this.cbxAnimal.Size = new System.Drawing.Size(157, 21);
+            this.cbxAnimal.TabIndex = 42;
+            this.cbxAnimal.Text = "Animal de companie";
+            this.cbxAnimal.UseVisualStyleBackColor = true;
+            // 
+            // cbxIesiri
+            // 
+            this.cbxIesiri.AutoSize = true;
+            this.cbxIesiri.Location = new System.Drawing.Point(210, 347);
+            this.cbxIesiri.Name = "cbxIesiri";
+            this.cbxIesiri.Size = new System.Drawing.Size(59, 21);
+            this.cbxIesiri.TabIndex = 43;
+            this.cbxIesiri.Text = "Iesiri";
+            this.cbxIesiri.UseVisualStyleBackColor = true;
+            // 
+            // cbxHaine
+            // 
+            this.cbxHaine.AutoSize = true;
+            this.cbxHaine.Location = new System.Drawing.Point(210, 376);
+            this.cbxHaine.Name = "cbxHaine";
+            this.cbxHaine.Size = new System.Drawing.Size(67, 21);
+            this.cbxHaine.TabIndex = 44;
+            this.cbxHaine.Text = "Haine";
+            this.cbxHaine.UseVisualStyleBackColor = true;
+            // 
+            // cbxCosmetice
+            // 
+            this.cbxCosmetice.AutoSize = true;
+            this.cbxCosmetice.Location = new System.Drawing.Point(210, 403);
+            this.cbxCosmetice.Name = "cbxCosmetice";
+            this.cbxCosmetice.Size = new System.Drawing.Size(95, 21);
+            this.cbxCosmetice.TabIndex = 45;
+            this.cbxCosmetice.Text = "Cosmetice";
+            this.cbxCosmetice.UseVisualStyleBackColor = true;
+            // 
+            // lblExpenses
+            // 
+            this.lblExpenses.AutoSize = true;
+            this.lblExpenses.Location = new System.Drawing.Point(148, 269);
+            this.lblExpenses.Name = "lblExpenses";
+            this.lblExpenses.Size = new System.Drawing.Size(69, 17);
+            this.lblExpenses.TabIndex = 46;
+            this.lblExpenses.Text = "Expenses";
+            // 
             // Interfata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblExpenses);
+            this.Controls.Add(this.cbxCosmetice);
+            this.Controls.Add(this.cbxHaine);
+            this.Controls.Add(this.cbxIesiri);
+            this.Controls.Add(this.cbxAnimal);
+            this.Controls.Add(this.cbxCadouri);
             this.Controls.Add(this.lblMesaj);
             this.Controls.Add(this.txtParola);
             this.Controls.Add(this.lblParola);
@@ -306,5 +378,11 @@ namespace GestiuneCheltuieli
         private System.Windows.Forms.Label lblParola;
         private System.Windows.Forms.TextBox txtParola;
         private System.Windows.Forms.Label lblMesaj;
+        private System.Windows.Forms.CheckBox cbxCadouri;
+        private System.Windows.Forms.CheckBox cbxAnimal;
+        private System.Windows.Forms.CheckBox cbxIesiri;
+        private System.Windows.Forms.CheckBox cbxHaine;
+        private System.Windows.Forms.CheckBox cbxCosmetice;
+        private System.Windows.Forms.Label lblExpenses;
     }
 }

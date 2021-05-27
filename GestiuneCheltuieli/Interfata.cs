@@ -16,6 +16,7 @@ namespace GestiuneCheltuieli
     public partial class Interfata : Form
     {
         IStocareData adminUtilizatori;
+        ArrayList cheltuieliselectate=new ArrayList();
 
         public Interfata()
         {
@@ -40,6 +41,9 @@ namespace GestiuneCheltuieli
                 {
                     ut.Bancn = bancSelectata.Value;
                 }
+
+                ut.Cheltuieli = new ArrayList();
+                ut.Cheltuieli.AddRange(cheltuieliselectate);
                 adminUtilizatori.AddUtilizator(ut);
                 lblMesaj.Text = "Utilizatorul a fost adaugat";
                 ResetareControale();
@@ -66,6 +70,11 @@ namespace GestiuneCheltuieli
             rtbEuro.Checked = false;
             rtbDolar.Checked = false;
             rtbLei.Checked = false;
+            cbxIesiri.Checked = false;
+            cbxHaine.Checked = false;
+            cbxCosmetice.Checked = false;
+            cbxCadouri.Checked = false;
+            cbxAnimal.Checked = false;
             lblMesaj.Text = string.Empty;
         }
 
@@ -147,7 +156,7 @@ namespace GestiuneCheltuieli
                 txtNume.BackColor = Color.Red;
                 ok = false;
             }
-            else
+           
             
             if (txtPrenume.Text == string.Empty)
             {
@@ -189,7 +198,17 @@ namespace GestiuneCheltuieli
                     MessageBox.Show("Nu ati ales valuta");
                 ok = false;
                     }
+            if(!cbxAnimal.Checked&& !cbxCadouri.Checked && !cbxCosmetice.Checked&&!cbxHaine.Checked&&!cbxIesiri.Checked)
+            {
+                MessageBox.Show("Nu ati selectat Cheltuielile");
+                ok = false;
+            }
                 return ok;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
