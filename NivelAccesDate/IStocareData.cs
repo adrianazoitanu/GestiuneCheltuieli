@@ -8,5 +8,7 @@ namespace NivelAccesDate
     {
         void AddUtilizator(Utilizator ut);
         ArrayList GetUtilizatori();
+       Utilizator Cautare(string nume, string prenume);
+        bool Modificare(Utilizator utMofidicat);
     }
 }

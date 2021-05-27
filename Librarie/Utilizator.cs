@@ -62,7 +62,6 @@ namespace Librarie
             IdUltimUtilizator = IdUtilizator;
 
         }
-
         public void SetInfo(string sInfo)
         {
             string[] v = sInfo.Split(' ');
@@ -110,6 +109,7 @@ namespace Librarie
             return $"{Nume} a economisit cel mai mult, suma de: {informatii[2]} lei";
 
         }
+       
         public string ConversieLaSir_PentruScriereInFisier()
         {
             string sInfo = "Nu exista";

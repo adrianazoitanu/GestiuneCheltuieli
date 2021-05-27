@@ -27,10 +27,12 @@ namespace GestiuneCheltuieli
                 Console.WriteLine("\t\t\t\t\t\tCheltuieli Personale");
                 Console.WriteLine("1. Adaugare utilizator");
                 Console.WriteLine("2. Log-in");
+              
                 Console.WriteLine("3. Comparare economii pentru 2 utilizatori alesi");
                 Console.WriteLine("4. Afisare utilizatori existenti in aplicatie");
-                Console.WriteLine("5. Iesire Aplicatie");
-
+                Console.WriteLine("5. Cautare Utilizator");
+                Console.WriteLine("6. Modificare date utilizator");
+                Console.WriteLine("7. Iesire Aplicatie");
                 op = int.Parse(Console.ReadLine());
 
 
@@ -60,9 +62,41 @@ namespace GestiuneCheltuieli
                         }
                         break;
                     case 5:
-                        //nerezolvat;
+                        {
+                            string n, p;
+                            Console.WriteLine("Introduceti numele utilizatorului cautat:");
+                            n = Console.ReadLine();
+                            Console.WriteLine("Introduceti prenumele utilizatorului cautat");
+                            p = Console.ReadLine();
+
+                            Utilizator u1 = new Utilizator();
+                            u1 = adminUtilizator.Cautare(n, p);
+                            if (adminUtilizator.Cautare(n, p) != null)
+                                Console.WriteLine("Utilizator Gasit:\n"+u1.ConversieLaSir());
+                            else
+                                Console.WriteLine("Utilizatorul " + n+" "+p + " nu a fost gasit");
+                           
+                        }
                         break;
                     case 6:
+                        {
+                            string n, p;
+                            Console.WriteLine("Introduceti numele utilizatorului cautat:");
+                            n = Console.ReadLine();
+                            Console.WriteLine("Introduceti prenumele utilizatorului cautat");
+                            p = Console.ReadLine();
+                            Utilizator u3;
+                            Utilizator u2 = new Utilizator();
+                            u2 = adminUtilizator.Cautare(n, p);
+                            if (adminUtilizator.Cautare(n, p) != null)
+                            {
+                                Console.WriteLine("Introduceti datele noi despre utilizator: ");
+                                u3 = CitireDateTastatura();
+                                adminUtilizator.Modificare(u3);
+                            }
+                            else
+                                Console.WriteLine("Utilizatorul " + n + " " + p + " nu a fost gasit\nCreati un cont nou!");
+                        }
 
                         break;
                     default:
@@ -77,7 +111,7 @@ namespace GestiuneCheltuieli
                 Console.ReadKey();
                 Console.Clear();
 
-            } while (op != 5);
+            } while (op != 7);
 
         }
         private static Utilizator CitireDateTastatura()
@@ -201,5 +235,7 @@ namespace GestiuneCheltuieli
                 Console.WriteLine("Utilizatorii nu exista");
 
         }
+       
+        
     }
 }

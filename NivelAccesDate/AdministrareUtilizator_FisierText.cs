@@ -68,5 +68,65 @@ namespace NivelAccesDate
 
             return ut;
         }
+        public Utilizator Cautare(string nume, string prenume)
+        {
+            try
+            {
+                using(StreamReader sr=new StreamReader(NumeFisier))
+                {
+                    string linie=string.Empty;
+                    while((linie=sr.ReadLine())!=null)
+                    {
+                        Utilizator ut = new Utilizator(linie);
+                        if (ut.Nume.Equals(nume) && ut.Prenume.Equals(prenume))
+                            return ut;
+                    }
+                }
+            }
+            catch (IOException eIO)
+            {
+                throw new Exception("Eroare la deschiderea fisierului. Mesaj: " + eIO.Message);
+            }
+            catch (Exception eGen)
+            {
+                throw new Exception("Eroare generica. Mesaj: " + eGen.Message);
+            }
+            return null;
+        }
+
+        public bool Modificare(Utilizator utMofidicat)
+        {
+           ArrayList utilizatori = GetUtilizatori();
+            bool modificare = false;
+            try
+            {
+                using(StreamWriter sr= new StreamWriter(NumeFisier,false))
+                {
+                   foreach(Utilizator ut in utilizatori)
+                    {
+                        Utilizator scrieInFisier = ut;
+                        if(ut.IdUtilizator==utMofidicat.IdUtilizator)
+                        {
+                            scrieInFisier = utMofidicat;
+                        }
+                        sr.WriteLine(scrieInFisier.ConversieLaSir_PentruScriereInFisier());
+                    }
+                    modificare = true;
+                }
+
+            }
+            catch (IOException eIO)
+            {
+                throw new Exception("Eroare la deschiderea fisierului. Mesaj: " + eIO.Message);
+            }
+            catch (Exception eGen)
+            {
+                throw new Exception("Eroare generica. Mesaj: " + eGen.Message);
+            }
+
+            return modificare;
+
+
+        }
     }
 }
