@@ -99,6 +99,7 @@ namespace GestiuneCheltuieli
                         }
 
                         break;
+                   
                     default:
                         break;
 
@@ -164,8 +165,11 @@ namespace GestiuneCheltuieli
                 Console.WriteLine("Nu ati introdus date corecte");
                 return u2;
             }
-
-            Utilizator u1 = new Utilizator(nume, _prenume, _parola);
+            int b;
+            Console.WriteLine("Alegeti moneda:");
+            Console.WriteLine("1-Euro\n2-Lei\n3-Dolar");
+            b = Int32.Parse(Console.ReadLine());
+            Utilizator u1 = new Utilizator(nume, _prenume, _parola,b);
             u1.SetInfo(infor);
             return u1;
         }
@@ -235,6 +239,8 @@ namespace GestiuneCheltuieli
                 Console.WriteLine("Utilizatorii nu exista");
 
         }
+
+       
        
         
     }

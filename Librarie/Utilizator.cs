@@ -6,6 +6,24 @@ using System.Threading.Tasks;
 
 namespace Librarie
 {
+    public enum Bancnota
+    {
+        Euro = 1,
+        Lei = 2,
+        Dolari = 3
+    };
+  
+    [Flags]
+    public enum Expenses
+    {
+        Cadouri=1,
+        Animale_Companie=2,
+        Iesiri=3,
+        Haine=4,
+        Cosmetice=5,
+        Alimente=6
+    };
+    
     public class Utilizator
     {
         private const int ID = 0;
@@ -13,12 +31,14 @@ namespace Librarie
         private const int PRENUME = 2;
         private const int INFO = 4;
         private const int PAROLA = 3;
+        private const int BANCNOTA = 5;
 
         double[] informatii;
         public static int IdUltimUtilizator { get; set; } = 0;
         public string Parola { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }
+        public int Bancn { get; set; }
         public int IdUtilizator { get; set; }
         public string NumeComplet { get { return Nume + " " + Prenume; } }
         public Utilizator()
@@ -26,10 +46,10 @@ namespace Librarie
             Nume = Prenume = Parola = String.Empty;
             IdUltimUtilizator++;
             IdUtilizator = IdUltimUtilizator;
-
+            Bancn = 0;
         }
         //laborator2, ex1
-        public Utilizator(string _nume, string _prenume, string _parola, double[] _info)
+        public Utilizator(string _nume, string _prenume, string _parola, double[] _info, int banc)
         {
             Nume = _nume;
             Prenume = _prenume;
@@ -38,14 +58,15 @@ namespace Librarie
             _info.CopyTo(informatii, 0);
             IdUltimUtilizator++;
             IdUtilizator = IdUltimUtilizator;
-
+            Bancn = banc;
         }
 
-        public Utilizator(string nume, string prenume, string parola)
+        public Utilizator(string nume, string prenume, string parola,int banc)
         {
             Nume = nume;
             Prenume = prenume;
             Parola = parola;
+            Bancn = banc;
             IdUltimUtilizator++;
             IdUtilizator = IdUltimUtilizator;
         }
@@ -60,7 +81,7 @@ namespace Librarie
             SetInfo(dateFisier[INFO]);
             Parola = dateFisier[PAROLA];
             IdUltimUtilizator = IdUtilizator;
-
+            
         }
         public void SetInfo(string sInfo)
         {
@@ -92,8 +113,8 @@ namespace Librarie
             {
                 sInfo = string.Join(" ", informatii);
             }
-
-            string s = $"Data: {DateTime.Now}\nUtilizatorul: {IdUtilizator}\nNume: {Nume} \nPrenume: {Prenume}\nVenit: {informatii[0]}\nCheltuieli: {informatii[1]}\nEconomii: {informatii[2]}";
+            
+            string s = $"Data: {DateTime.Now}\nUtilizatorul: {IdUtilizator}\nNume: {Nume} \nPrenume: {Prenume}\nVenit: {informatii[0]} {(Bancnota)Bancn}\nCheltuieli: {informatii[1]} {(Bancnota)Bancn}\nEconomii: {informatii[2]} {(Bancnota)Bancn}";
             return s;
         }
 
@@ -118,7 +139,7 @@ namespace Librarie
                 sInfo = string.Join(" ", informatii);
             }
 
-            string s = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}", ';', IdUtilizator.ToString(), (Nume ?? "Necunoscut"), (Prenume ?? "Necunoscut"), (Parola ?? "Necunoscut"), sInfo);
+            string s = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}", ';', IdUtilizator.ToString(), (Nume ?? "Necunoscut"), (Prenume ?? "Necunoscut"), (Parola ?? "Necunoscut"), sInfo,(Bancnota)Bancn );
 
             return s;
         }
