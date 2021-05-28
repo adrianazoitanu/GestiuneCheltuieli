@@ -79,7 +79,7 @@ namespace GestiuneCheltuieli
             comboBoxAfis.Items.Clear();
             lblMesaj.Text = string.Empty;
         }
-
+       
         private void btnAfiseaza_Click(object sender, EventArgs e)
         {
             rtbAfisare.Clear();
@@ -88,20 +88,27 @@ namespace GestiuneCheltuieli
             var antet = String.Format("{0,-5}{1,-35}{2,30}\n", "Id", "Nume Prenume","Venit Economii Cheltuieli");
             rtbAfisare.AppendText(antet);
             ArrayList ut = adminUtilizatori.GetUtilizatori();
+            dataGrid.Columns.Add("informatii", "Informatii   Nume  Prenume \t\t\t\tVenituri Economii Cheltuieli ");
+           
+            dataGrid.Columns[0].DisplayIndex = 0;
+            dataGrid.Columns[0].Width=500;
+             
             foreach (Utilizator ut1 in ut)
             {
 
                 var linie = String.Format("{0,5}{1,25}{2,40}\n", ut1.IdUtilizator, ut1.NumeComplet, ut1.afisInfo());
                 rtbAfisare.AppendText(linie);
                 lstbxAfis.Items.Add(linie);
-               
+                dataGrid.Rows.Add(linie);
+
             }
             if (comboBoxAfis.SelectedItem != null)
             {
                 MessageBox.Show("Ziua:" + comboBoxAfis.SelectedItem.ToString());
-               
-
             }
+         
+           
+
 
         }
 
@@ -226,6 +233,14 @@ namespace GestiuneCheltuieli
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ArrayList ut = adminUtilizatori.GetUtilizatori();
+
+            dataGrid.DataSource = null;
+            dataGrid.DataSource = ut;
         }
     }
 }

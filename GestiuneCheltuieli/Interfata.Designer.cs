@@ -59,6 +59,8 @@ namespace GestiuneCheltuieli
             this.lblExpenses = new System.Windows.Forms.Label();
             this.comboBoxAfis = new System.Windows.Forms.ComboBox();
             this.lstbxAfis = new System.Windows.Forms.ListBox();
+            this.dataGrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // rtbAfisare
@@ -71,7 +73,7 @@ namespace GestiuneCheltuieli
             // 
             // btnModifica
             // 
-            this.btnModifica.Location = new System.Drawing.Point(588, 380);
+            this.btnModifica.Location = new System.Drawing.Point(524, 413);
             this.btnModifica.Name = "btnModifica";
             this.btnModifica.Size = new System.Drawing.Size(75, 25);
             this.btnModifica.TabIndex = 36;
@@ -81,7 +83,7 @@ namespace GestiuneCheltuieli
             // 
             // btnCauta
             // 
-            this.btnCauta.Location = new System.Drawing.Point(377, 380);
+            this.btnCauta.Location = new System.Drawing.Point(433, 413);
             this.btnCauta.Name = "btnCauta";
             this.btnCauta.Size = new System.Drawing.Size(75, 25);
             this.btnCauta.TabIndex = 35;
@@ -91,7 +93,7 @@ namespace GestiuneCheltuieli
             // 
             // btnAdauga
             // 
-            this.btnAdauga.Location = new System.Drawing.Point(588, 326);
+            this.btnAdauga.Location = new System.Drawing.Point(605, 413);
             this.btnAdauga.Name = "btnAdauga";
             this.btnAdauga.Size = new System.Drawing.Size(75, 25);
             this.btnAdauga.TabIndex = 34;
@@ -101,7 +103,7 @@ namespace GestiuneCheltuieli
             // 
             // btnAfiseaza
             // 
-            this.btnAfiseaza.Location = new System.Drawing.Point(377, 326);
+            this.btnAfiseaza.Location = new System.Drawing.Point(343, 415);
             this.btnAfiseaza.Name = "btnAfiseaza";
             this.btnAfiseaza.Size = new System.Drawing.Size(75, 23);
             this.btnAfiseaza.TabIndex = 33;
@@ -327,7 +329,7 @@ namespace GestiuneCheltuieli
             "Vineri",
             "Sambtata",
             "Duminica"});
-            this.comboBoxAfis.Location = new System.Drawing.Point(329, 262);
+            this.comboBoxAfis.Location = new System.Drawing.Point(25, 391);
             this.comboBoxAfis.Name = "comboBoxAfis";
             this.comboBoxAfis.Size = new System.Drawing.Size(158, 24);
             this.comboBoxAfis.TabIndex = 48;
@@ -341,11 +343,23 @@ namespace GestiuneCheltuieli
             this.lstbxAfis.Size = new System.Drawing.Size(422, 116);
             this.lstbxAfis.TabIndex = 47;
             // 
+            // dataGrid
+            // 
+            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid.Location = new System.Drawing.Point(360, 257);
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.RowHeadersWidth = 51;
+            this.dataGrid.RowTemplate.Height = 24;
+            this.dataGrid.Size = new System.Drawing.Size(391, 140);
+            this.dataGrid.TabIndex = 50;
+            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
+            // 
             // Interfata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.comboBoxAfis);
             this.Controls.Add(this.lstbxAfis);
             this.Controls.Add(this.lblExpenses);
@@ -378,6 +392,7 @@ namespace GestiuneCheltuieli
             this.Controls.Add(this.lblNume);
             this.Name = "Interfata";
             this.Text = "Interfata";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,5 +430,6 @@ namespace GestiuneCheltuieli
         private System.Windows.Forms.Label lblExpenses;
         private System.Windows.Forms.ComboBox comboBoxAfis;
         private System.Windows.Forms.ListBox lstbxAfis;
+        private System.Windows.Forms.DataGridView dataGrid;
     }
 }
