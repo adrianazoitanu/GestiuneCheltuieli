@@ -63,7 +63,12 @@ namespace Librarie
         }
         public string afisInfo()
         {
-            return $"{informatii[0]}{informatii[1]}{informatii[2]}";
+            string sInfo = "Nu exista";
+            if (informatii != null)
+            {
+                sInfo = string.Join(" ", informatii);
+            }
+            return $"{sInfo}";
         }
         public Utilizator(string nume, string prenume, string parola)
         {

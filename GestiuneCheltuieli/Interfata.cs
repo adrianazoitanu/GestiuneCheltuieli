@@ -81,12 +81,12 @@ namespace GestiuneCheltuieli
         private void btnAfiseaza_Click(object sender, EventArgs e)
         {
             rtbAfisare.Clear();
-            var antet = String.Format("{0,-5}{1,-35}\n", "Id", "Nume Prenume");
+            var antet = String.Format("{0,-5}{1,-35}{2,30}\n", "Id", "Nume Prenume","Venit Economii Cheltuieli");
             rtbAfisare.AppendText(antet);
             ArrayList ut = adminUtilizatori.GetUtilizatori();
             foreach (Utilizator ut1 in ut)
             {
-                var linie = String.Format("{0,5}{1,25}\n",ut1.IdUtilizator,ut1.NumeComplet);
+                var linie = String.Format("{0,5}{1,25}{2,40}\n",ut1.IdUtilizator,ut1.NumeComplet,ut1.afisInfo());
                 rtbAfisare.AppendText(linie);
             }
         }
