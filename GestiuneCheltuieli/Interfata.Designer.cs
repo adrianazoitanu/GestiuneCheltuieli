@@ -60,7 +60,11 @@ namespace GestiuneCheltuieli
             this.comboBoxAfis = new System.Windows.Forms.ComboBox();
             this.lstbxAfis = new System.Windows.Forms.ListBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MenuUt = new System.Windows.Forms.ToolStripMenuItem();
+            this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtbAfisare
@@ -153,7 +157,6 @@ namespace GestiuneCheltuieli
             this.rtbDolar.Name = "rtbDolar";
             this.rtbDolar.Size = new System.Drawing.Size(63, 21);
             this.rtbDolar.TabIndex = 27;
-            this.rtbDolar.TabStop = true;
             this.rtbDolar.Text = "Dolar";
             this.rtbDolar.UseVisualStyleBackColor = true;
             // 
@@ -164,13 +167,13 @@ namespace GestiuneCheltuieli
             this.rtbLei.Name = "rtbLei";
             this.rtbLei.Size = new System.Drawing.Size(48, 21);
             this.rtbLei.TabIndex = 26;
-            this.rtbLei.TabStop = true;
             this.rtbLei.Text = "Lei";
             this.rtbLei.UseVisualStyleBackColor = true;
             // 
             // rtbEuro
             // 
             this.rtbEuro.AutoSize = true;
+            this.rtbEuro.Checked = true;
             this.rtbEuro.Location = new System.Drawing.Point(83, 292);
             this.rtbEuro.Name = "rtbEuro";
             this.rtbEuro.Size = new System.Drawing.Size(59, 21);
@@ -333,6 +336,7 @@ namespace GestiuneCheltuieli
             this.comboBoxAfis.Name = "comboBoxAfis";
             this.comboBoxAfis.Size = new System.Drawing.Size(158, 24);
             this.comboBoxAfis.TabIndex = 48;
+            this.comboBoxAfis.SelectedIndexChanged += new System.EventHandler(this.comboBoxAfis_SelectedIndexChanged);
             // 
             // lstbxAfis
             // 
@@ -353,6 +357,32 @@ namespace GestiuneCheltuieli
             this.dataGrid.Size = new System.Drawing.Size(391, 140);
             this.dataGrid.TabIndex = 50;
             this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuUt});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.TabIndex = 51;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // MenuUt
+            // 
+            this.MenuUt.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iesireToolStripMenuItem});
+            this.MenuUt.Name = "MenuUt";
+            this.MenuUt.Size = new System.Drawing.Size(46, 24);
+            this.MenuUt.Text = "File";
+            // 
+            // iesireToolStripMenuItem
+            // 
+            this.iesireToolStripMenuItem.Name = "iesireToolStripMenuItem";
+            this.iesireToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.iesireToolStripMenuItem.Text = "Iesire";
+            this.iesireToolStripMenuItem.Click += new System.EventHandler(this.iesireToolStripMenuItem_Click);
             // 
             // Interfata
             // 
@@ -390,9 +420,13 @@ namespace GestiuneCheltuieli
             this.Controls.Add(this.lblVenit);
             this.Controls.Add(this.lblPrenume);
             this.Controls.Add(this.lblNume);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Interfata";
             this.Text = "Interfata";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,5 +465,8 @@ namespace GestiuneCheltuieli
         private System.Windows.Forms.ComboBox comboBoxAfis;
         private System.Windows.Forms.ListBox lstbxAfis;
         private System.Windows.Forms.DataGridView dataGrid;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem MenuUt;
+        private System.Windows.Forms.ToolStripMenuItem iesireToolStripMenuItem;
     }
 }

@@ -48,6 +48,8 @@ namespace GestiuneCheltuieli
                 adminUtilizatori.AddUtilizator(ut);
                 lblMesaj.Text = "Utilizatorul a fost adaugat";
                 ResetareControale();
+                rtbAfisare.Clear();
+                lstbxAfis.Items.Clear();
             }
         }
 
@@ -76,15 +78,16 @@ namespace GestiuneCheltuieli
             cbxCosmetice.Checked = false;
             cbxCadouri.Checked = false;
             cbxAnimal.Checked = false;
-            comboBoxAfis.Items.Clear();
+            
             lblMesaj.Text = string.Empty;
         }
        
         private void btnAfiseaza_Click(object sender, EventArgs e)
         {
+            DateTime dataactualizata=DateTime.Now;
             rtbAfisare.Clear();
             lstbxAfis.Items.Clear();
-            comboBoxAfis.Items.Clear();
+            
             var antet = String.Format("{0,-5}{1,-35}{2,30}\n", "Id", "Nume Prenume","Venit Economii Cheltuieli");
             rtbAfisare.AppendText(antet);
             ArrayList ut = adminUtilizatori.GetUtilizatori();
@@ -92,11 +95,12 @@ namespace GestiuneCheltuieli
            
             dataGrid.Columns[0].DisplayIndex = 0;
             dataGrid.Columns[0].Width=500;
-             
+            
+            
             foreach (Utilizator ut1 in ut)
             {
 
-                var linie = String.Format("{0,5}{1,25}{2,40}\n", ut1.IdUtilizator, ut1.NumeComplet, ut1.afisInfo());
+                var linie = String.Format("{0,5}{1,10}{2,15}{3,25}\n", ut1.IdUtilizator, ut1.NumeComplet, ut1.afisInfo(),dataactualizata);
                 rtbAfisare.AppendText(linie);
                 lstbxAfis.Items.Add(linie);
                 dataGrid.Rows.Add(linie);
@@ -241,6 +245,26 @@ namespace GestiuneCheltuieli
 
             dataGrid.DataSource = null;
             dataGrid.DataSource = ut;
+        }
+
+        private void varstaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxAfis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iesireToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Sigur doriti sa iesiti?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+
+                Application.Exit();
+
+            }
         }
     }
 }
