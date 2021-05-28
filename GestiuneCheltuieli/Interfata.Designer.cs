@@ -57,13 +57,15 @@ namespace GestiuneCheltuieli
             this.cbxHaine = new System.Windows.Forms.CheckBox();
             this.cbxCosmetice = new System.Windows.Forms.CheckBox();
             this.lblExpenses = new System.Windows.Forms.Label();
+            this.comboBoxAfis = new System.Windows.Forms.ComboBox();
+            this.lstbxAfis = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // rtbAfisare
             // 
-            this.rtbAfisare.Location = new System.Drawing.Point(329, 46);
+            this.rtbAfisare.Location = new System.Drawing.Point(329, 24);
             this.rtbAfisare.Name = "rtbAfisare";
-            this.rtbAfisare.Size = new System.Drawing.Size(422, 250);
+            this.rtbAfisare.Size = new System.Drawing.Size(422, 102);
             this.rtbAfisare.TabIndex = 37;
             this.rtbAfisare.Text = "Lista Utilizatori";
             // 
@@ -314,11 +316,38 @@ namespace GestiuneCheltuieli
             this.lblExpenses.TabIndex = 46;
             this.lblExpenses.Text = "Expenses";
             // 
+            // comboBoxAfis
+            // 
+            this.comboBoxAfis.FormattingEnabled = true;
+            this.comboBoxAfis.Items.AddRange(new object[] {
+            "Luni",
+            "Marti",
+            "Miercuri",
+            "Joi",
+            "Vineri",
+            "Sambtata",
+            "Duminica"});
+            this.comboBoxAfis.Location = new System.Drawing.Point(329, 262);
+            this.comboBoxAfis.Name = "comboBoxAfis";
+            this.comboBoxAfis.Size = new System.Drawing.Size(158, 24);
+            this.comboBoxAfis.TabIndex = 48;
+            // 
+            // lstbxAfis
+            // 
+            this.lstbxAfis.FormattingEnabled = true;
+            this.lstbxAfis.ItemHeight = 16;
+            this.lstbxAfis.Location = new System.Drawing.Point(329, 132);
+            this.lstbxAfis.Name = "lstbxAfis";
+            this.lstbxAfis.Size = new System.Drawing.Size(422, 116);
+            this.lstbxAfis.TabIndex = 47;
+            // 
             // Interfata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBoxAfis);
+            this.Controls.Add(this.lstbxAfis);
             this.Controls.Add(this.lblExpenses);
             this.Controls.Add(this.cbxCosmetice);
             this.Controls.Add(this.cbxHaine);
@@ -384,5 +413,7 @@ namespace GestiuneCheltuieli
         private System.Windows.Forms.CheckBox cbxHaine;
         private System.Windows.Forms.CheckBox cbxCosmetice;
         private System.Windows.Forms.Label lblExpenses;
+        private System.Windows.Forms.ComboBox comboBoxAfis;
+        private System.Windows.Forms.ListBox lstbxAfis;
     }
 }

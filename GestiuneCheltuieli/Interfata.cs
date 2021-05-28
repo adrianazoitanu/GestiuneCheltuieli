@@ -44,6 +44,7 @@ namespace GestiuneCheltuieli
 
                 ut.Cheltuieli = new ArrayList();
                 ut.Cheltuieli.AddRange(cheltuieliselectate);
+
                 adminUtilizatori.AddUtilizator(ut);
                 lblMesaj.Text = "Utilizatorul a fost adaugat";
                 ResetareControale();
@@ -75,25 +76,38 @@ namespace GestiuneCheltuieli
             cbxCosmetice.Checked = false;
             cbxCadouri.Checked = false;
             cbxAnimal.Checked = false;
+            comboBoxAfis.Items.Clear();
             lblMesaj.Text = string.Empty;
         }
 
         private void btnAfiseaza_Click(object sender, EventArgs e)
         {
             rtbAfisare.Clear();
+            lstbxAfis.Items.Clear();
+            comboBoxAfis.Items.Clear();
             var antet = String.Format("{0,-5}{1,-35}{2,30}\n", "Id", "Nume Prenume","Venit Economii Cheltuieli");
             rtbAfisare.AppendText(antet);
             ArrayList ut = adminUtilizatori.GetUtilizatori();
             foreach (Utilizator ut1 in ut)
             {
-                var linie = String.Format("{0,5}{1,25}{2,40}\n",ut1.IdUtilizator,ut1.NumeComplet,ut1.afisInfo());
+
+                var linie = String.Format("{0,5}{1,25}{2,40}\n", ut1.IdUtilizator, ut1.NumeComplet, ut1.afisInfo());
                 rtbAfisare.AppendText(linie);
+                lstbxAfis.Items.Add(linie);
+               
             }
+            if (comboBoxAfis.SelectedItem != null)
+            {
+                MessageBox.Show("Ziua:" + comboBoxAfis.SelectedItem.ToString());
+               
+
+            }
+
         }
 
         private void btnCauta_Click(object sender, EventArgs e)
         {
-           
+            lstbxAfis.Items.Clear();
             int n = -1;
             if(txtNume.Text==string.Empty)
             {
@@ -113,6 +127,7 @@ namespace GestiuneCheltuieli
                     MessageBox.Show("Utilizator Gasit");
                     var linie = String.Format("{0,5}{1,25}\n", ut1.IdUtilizator, ut1.NumeComplet);
                     rtbAfisare.AppendText(linie);
+                    lstbxAfis.Items.Add(linie);
                     n = 0;
                 }
             if(n==-1)
@@ -121,7 +136,8 @@ namespace GestiuneCheltuieli
 
         private void btnModifica_Click(object sender, EventArgs e)
         {
-            //rtbAfisare.Clear();
+            lstbxAfis.Items.Clear();
+            rtbAfisare.Clear();
             string inf = string.Empty;
             ArrayList ut = adminUtilizatori.GetUtilizatori();
             foreach (Utilizator ut1 in ut)
@@ -156,6 +172,7 @@ namespace GestiuneCheltuieli
                 txtNume.BackColor = Color.Red;
                 ok = false;
             }
+          
            
             
             if (txtPrenume.Text == string.Empty)
