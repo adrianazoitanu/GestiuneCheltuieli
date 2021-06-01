@@ -13,16 +13,6 @@ namespace Librarie
         Dolari = 3
     };
   
-    [Flags]
-    public enum Expenses
-    {
-        Cadouri=1,
-        Animale_Companie=2,
-        Iesiri=3,
-        Haine=4,
-        Cosmetice=5,
-        Alimente=6
-    };
     
     public class Utilizator
     {
@@ -41,13 +31,17 @@ namespace Librarie
         public Bancnota Bancn { get; set; }
         public int IdUtilizator { get; set; }
         public ArrayList Cheltuieli { get; set; }
-        public string NumeComplet { get { return Nume + " " + Prenume; } }
+        public string NumeComplet { get { return Nume + "    " + Prenume; } }
         public Utilizator()
         {
             Nume = Prenume = Parola = String.Empty;
             IdUltimUtilizator++;
             IdUtilizator = IdUltimUtilizator;
-            Bancn = 0;
+           
+        }
+        public string afBancnota()
+        {
+            return $"{(Bancnota)Bancn }";
         }
         //laborator2, ex1
         public Utilizator(string _nume, string _prenume, string _parola, double[] _info, Bancnota banc)
@@ -66,16 +60,30 @@ namespace Librarie
             string sInfo = "Nu exista";
             if (informatii != null)
             {
-                sInfo = string.Join(" ", informatii);
+                sInfo = string.Join("       ", informatii);
+             //   sInfo = string.Join(" ", Bancn);
             }
+            
             return $"{sInfo}";
+        }
+        public string Venit()
+        {
+            return $"{informatii[0]}";
+        }
+        public string Econom()
+        {
+            return $"{informatii[1]}";
+        }
+        public string Chelt()
+        {
+            return $"{informatii[2]}";
         }
         public Utilizator(string nume, string prenume, string parola)
         {
             Nume = nume;
             Prenume = prenume;
             Parola = parola;
-          
+            
             IdUltimUtilizator++;
             IdUtilizator = IdUltimUtilizator;
         }
@@ -87,6 +95,7 @@ namespace Librarie
             IdUtilizator = Convert.ToInt32(dateFisier[ID]);
             Nume = dateFisier[NUME];
             Prenume = dateFisier[PRENUME];
+            Bancn = (Bancnota)Enum.Parse(typeof(Bancnota), dateFisier[BANCNOTA]);
             SetInfo(dateFisier[INFO]);
             Parola = dateFisier[PAROLA];
             IdUltimUtilizator = IdUtilizator;
@@ -123,7 +132,7 @@ namespace Librarie
                 sInfo = string.Join(" ", informatii);
             }
             
-            string s = $"Data: {DateTime.Now}\nUtilizatorul: {IdUtilizator}\nNume: {Nume} \nPrenume: {Prenume}\nVenit: {informatii[0]} {(Bancnota)Bancn}\nCheltuieli: {informatii[1]} {(Bancnota)Bancn}\nEconomii: {informatii[2]} {(Bancnota)Bancn}";
+            string s = $"\nUtilizatorul: {IdUtilizator}\nNume: {Nume} \nPrenume: {Prenume}\nVenit: {informatii[0]} {(Bancnota)Bancn}\nCheltuieli: {informatii[1]} {(Bancnota)Bancn}\nEconomii: {informatii[2]} {(Bancnota)Bancn}";
             return s;
         }
 

@@ -29,7 +29,6 @@ namespace GestiuneCheltuieli
         /// </summary>
         private void InitializeComponent()
         {
-            this.rtbAfisare = new System.Windows.Forms.RichTextBox();
             this.btnModifica = new System.Windows.Forms.Button();
             this.btnCauta = new System.Windows.Forms.Button();
             this.btnAdauga = new System.Windows.Forms.Button();
@@ -51,33 +50,16 @@ namespace GestiuneCheltuieli
             this.lblParola = new System.Windows.Forms.Label();
             this.txtParola = new System.Windows.Forms.TextBox();
             this.lblMesaj = new System.Windows.Forms.Label();
-            this.cbxCadouri = new System.Windows.Forms.CheckBox();
-            this.cbxAnimal = new System.Windows.Forms.CheckBox();
-            this.cbxIesiri = new System.Windows.Forms.CheckBox();
-            this.cbxHaine = new System.Windows.Forms.CheckBox();
-            this.cbxCosmetice = new System.Windows.Forms.CheckBox();
-            this.lblExpenses = new System.Windows.Forms.Label();
-            this.comboBoxAfis = new System.Windows.Forms.ComboBox();
-            this.lstbxAfis = new System.Windows.Forms.ListBox();
-            this.dataGrid = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MenuUt = new System.Windows.Forms.ToolStripMenuItem();
             this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            this.lstbxAfis = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // rtbAfisare
-            // 
-            this.rtbAfisare.Location = new System.Drawing.Point(329, 24);
-            this.rtbAfisare.Name = "rtbAfisare";
-            this.rtbAfisare.Size = new System.Drawing.Size(422, 102);
-            this.rtbAfisare.TabIndex = 37;
-            this.rtbAfisare.Text = "Lista Utilizatori";
-            // 
             // btnModifica
             // 
-            this.btnModifica.Location = new System.Drawing.Point(524, 413);
+            this.btnModifica.Location = new System.Drawing.Point(538, 356);
             this.btnModifica.Name = "btnModifica";
             this.btnModifica.Size = new System.Drawing.Size(75, 25);
             this.btnModifica.TabIndex = 36;
@@ -87,7 +69,7 @@ namespace GestiuneCheltuieli
             // 
             // btnCauta
             // 
-            this.btnCauta.Location = new System.Drawing.Point(433, 413);
+            this.btnCauta.Location = new System.Drawing.Point(447, 356);
             this.btnCauta.Name = "btnCauta";
             this.btnCauta.Size = new System.Drawing.Size(75, 25);
             this.btnCauta.TabIndex = 35;
@@ -97,7 +79,7 @@ namespace GestiuneCheltuieli
             // 
             // btnAdauga
             // 
-            this.btnAdauga.Location = new System.Drawing.Point(605, 413);
+            this.btnAdauga.Location = new System.Drawing.Point(619, 356);
             this.btnAdauga.Name = "btnAdauga";
             this.btnAdauga.Size = new System.Drawing.Size(75, 25);
             this.btnAdauga.TabIndex = 34;
@@ -107,11 +89,11 @@ namespace GestiuneCheltuieli
             // 
             // btnAfiseaza
             // 
-            this.btnAfiseaza.Location = new System.Drawing.Point(343, 415);
+            this.btnAfiseaza.Location = new System.Drawing.Point(307, 358);
             this.btnAfiseaza.Name = "btnAfiseaza";
-            this.btnAfiseaza.Size = new System.Drawing.Size(75, 23);
+            this.btnAfiseaza.Size = new System.Drawing.Size(124, 23);
             this.btnAfiseaza.TabIndex = 33;
-            this.btnAfiseaza.Text = "Afiseaza";
+            this.btnAfiseaza.Text = "Intra in cont";
             this.btnAfiseaza.UseVisualStyleBackColor = true;
             this.btnAfiseaza.Click += new System.EventHandler(this.btnAfiseaza_Click);
             // 
@@ -142,6 +124,7 @@ namespace GestiuneCheltuieli
             this.txtPrenume.Name = "txtPrenume";
             this.txtPrenume.Size = new System.Drawing.Size(100, 22);
             this.txtPrenume.TabIndex = 29;
+            this.txtPrenume.TextChanged += new System.EventHandler(this.txtPrenume_TextChanged);
             // 
             // txtNume
             // 
@@ -153,7 +136,7 @@ namespace GestiuneCheltuieli
             // rtbDolar
             // 
             this.rtbDolar.AutoSize = true;
-            this.rtbDolar.Location = new System.Drawing.Point(83, 346);
+            this.rtbDolar.Location = new System.Drawing.Point(110, 336);
             this.rtbDolar.Name = "rtbDolar";
             this.rtbDolar.Size = new System.Drawing.Size(63, 21);
             this.rtbDolar.TabIndex = 27;
@@ -163,7 +146,7 @@ namespace GestiuneCheltuieli
             // rtbLei
             // 
             this.rtbLei.AutoSize = true;
-            this.rtbLei.Location = new System.Drawing.Point(83, 319);
+            this.rtbLei.Location = new System.Drawing.Point(110, 309);
             this.rtbLei.Name = "rtbLei";
             this.rtbLei.Size = new System.Drawing.Size(48, 21);
             this.rtbLei.TabIndex = 26;
@@ -174,7 +157,7 @@ namespace GestiuneCheltuieli
             // 
             this.rtbEuro.AutoSize = true;
             this.rtbEuro.Checked = true;
-            this.rtbEuro.Location = new System.Drawing.Point(83, 292);
+            this.rtbEuro.Location = new System.Drawing.Point(110, 282);
             this.rtbEuro.Name = "rtbEuro";
             this.rtbEuro.Size = new System.Drawing.Size(59, 21);
             this.rtbEuro.TabIndex = 25;
@@ -185,7 +168,7 @@ namespace GestiuneCheltuieli
             // lblValuta
             // 
             this.lblValuta.AutoSize = true;
-            this.lblValuta.Location = new System.Drawing.Point(22, 269);
+            this.lblValuta.Location = new System.Drawing.Point(49, 259);
             this.lblValuta.Name = "lblValuta";
             this.lblValuta.Size = new System.Drawing.Size(48, 17);
             this.lblValuta.TabIndex = 24;
@@ -261,103 +244,6 @@ namespace GestiuneCheltuieli
             this.lblMesaj.Size = new System.Drawing.Size(0, 17);
             this.lblMesaj.TabIndex = 40;
             // 
-            // cbxCadouri
-            // 
-            this.cbxCadouri.AutoSize = true;
-            this.cbxCadouri.Location = new System.Drawing.Point(210, 292);
-            this.cbxCadouri.Name = "cbxCadouri";
-            this.cbxCadouri.Size = new System.Drawing.Size(79, 21);
-            this.cbxCadouri.TabIndex = 41;
-            this.cbxCadouri.Text = "Cadouri";
-            this.cbxCadouri.UseVisualStyleBackColor = true;
-            this.cbxCadouri.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // cbxAnimal
-            // 
-            this.cbxAnimal.AutoSize = true;
-            this.cbxAnimal.Location = new System.Drawing.Point(210, 320);
-            this.cbxAnimal.Name = "cbxAnimal";
-            this.cbxAnimal.Size = new System.Drawing.Size(157, 21);
-            this.cbxAnimal.TabIndex = 42;
-            this.cbxAnimal.Text = "Animal de companie";
-            this.cbxAnimal.UseVisualStyleBackColor = true;
-            // 
-            // cbxIesiri
-            // 
-            this.cbxIesiri.AutoSize = true;
-            this.cbxIesiri.Location = new System.Drawing.Point(210, 347);
-            this.cbxIesiri.Name = "cbxIesiri";
-            this.cbxIesiri.Size = new System.Drawing.Size(59, 21);
-            this.cbxIesiri.TabIndex = 43;
-            this.cbxIesiri.Text = "Iesiri";
-            this.cbxIesiri.UseVisualStyleBackColor = true;
-            // 
-            // cbxHaine
-            // 
-            this.cbxHaine.AutoSize = true;
-            this.cbxHaine.Location = new System.Drawing.Point(210, 376);
-            this.cbxHaine.Name = "cbxHaine";
-            this.cbxHaine.Size = new System.Drawing.Size(67, 21);
-            this.cbxHaine.TabIndex = 44;
-            this.cbxHaine.Text = "Haine";
-            this.cbxHaine.UseVisualStyleBackColor = true;
-            // 
-            // cbxCosmetice
-            // 
-            this.cbxCosmetice.AutoSize = true;
-            this.cbxCosmetice.Location = new System.Drawing.Point(210, 403);
-            this.cbxCosmetice.Name = "cbxCosmetice";
-            this.cbxCosmetice.Size = new System.Drawing.Size(95, 21);
-            this.cbxCosmetice.TabIndex = 45;
-            this.cbxCosmetice.Text = "Cosmetice";
-            this.cbxCosmetice.UseVisualStyleBackColor = true;
-            // 
-            // lblExpenses
-            // 
-            this.lblExpenses.AutoSize = true;
-            this.lblExpenses.Location = new System.Drawing.Point(148, 269);
-            this.lblExpenses.Name = "lblExpenses";
-            this.lblExpenses.Size = new System.Drawing.Size(69, 17);
-            this.lblExpenses.TabIndex = 46;
-            this.lblExpenses.Text = "Expenses";
-            // 
-            // comboBoxAfis
-            // 
-            this.comboBoxAfis.FormattingEnabled = true;
-            this.comboBoxAfis.Items.AddRange(new object[] {
-            "Luni",
-            "Marti",
-            "Miercuri",
-            "Joi",
-            "Vineri",
-            "Sambtata",
-            "Duminica"});
-            this.comboBoxAfis.Location = new System.Drawing.Point(25, 391);
-            this.comboBoxAfis.Name = "comboBoxAfis";
-            this.comboBoxAfis.Size = new System.Drawing.Size(158, 24);
-            this.comboBoxAfis.TabIndex = 48;
-            this.comboBoxAfis.SelectedIndexChanged += new System.EventHandler(this.comboBoxAfis_SelectedIndexChanged);
-            // 
-            // lstbxAfis
-            // 
-            this.lstbxAfis.FormattingEnabled = true;
-            this.lstbxAfis.ItemHeight = 16;
-            this.lstbxAfis.Location = new System.Drawing.Point(329, 132);
-            this.lstbxAfis.Name = "lstbxAfis";
-            this.lstbxAfis.Size = new System.Drawing.Size(422, 116);
-            this.lstbxAfis.TabIndex = 47;
-            // 
-            // dataGrid
-            // 
-            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Location = new System.Drawing.Point(360, 257);
-            this.dataGrid.Name = "dataGrid";
-            this.dataGrid.RowHeadersWidth = 51;
-            this.dataGrid.RowTemplate.Height = 24;
-            this.dataGrid.Size = new System.Drawing.Size(391, 140);
-            this.dataGrid.TabIndex = 50;
-            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -384,24 +270,24 @@ namespace GestiuneCheltuieli
             this.iesireToolStripMenuItem.Text = "Iesire";
             this.iesireToolStripMenuItem.Click += new System.EventHandler(this.iesireToolStripMenuItem_Click);
             // 
+            // lstbxAfis
+            // 
+            this.lstbxAfis.FormattingEnabled = true;
+            this.lstbxAfis.ItemHeight = 16;
+            this.lstbxAfis.Location = new System.Drawing.Point(296, 49);
+            this.lstbxAfis.Name = "lstbxAfis";
+            this.lstbxAfis.Size = new System.Drawing.Size(470, 276);
+            this.lstbxAfis.TabIndex = 47;
+            // 
             // Interfata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGrid);
-            this.Controls.Add(this.comboBoxAfis);
             this.Controls.Add(this.lstbxAfis);
-            this.Controls.Add(this.lblExpenses);
-            this.Controls.Add(this.cbxCosmetice);
-            this.Controls.Add(this.cbxHaine);
-            this.Controls.Add(this.cbxIesiri);
-            this.Controls.Add(this.cbxAnimal);
-            this.Controls.Add(this.cbxCadouri);
             this.Controls.Add(this.lblMesaj);
             this.Controls.Add(this.txtParola);
             this.Controls.Add(this.lblParola);
-            this.Controls.Add(this.rtbAfisare);
             this.Controls.Add(this.btnModifica);
             this.Controls.Add(this.btnCauta);
             this.Controls.Add(this.btnAdauga);
@@ -424,7 +310,7 @@ namespace GestiuneCheltuieli
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Interfata";
             this.Text = "Interfata";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            this.Load += new System.EventHandler(this.Interfata_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -433,8 +319,6 @@ namespace GestiuneCheltuieli
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox rtbAfisare;
         private System.Windows.Forms.Button btnModifica;
         private System.Windows.Forms.Button btnCauta;
         private System.Windows.Forms.Button btnAdauga;
@@ -456,17 +340,9 @@ namespace GestiuneCheltuieli
         private System.Windows.Forms.Label lblParola;
         private System.Windows.Forms.TextBox txtParola;
         private System.Windows.Forms.Label lblMesaj;
-        private System.Windows.Forms.CheckBox cbxCadouri;
-        private System.Windows.Forms.CheckBox cbxAnimal;
-        private System.Windows.Forms.CheckBox cbxIesiri;
-        private System.Windows.Forms.CheckBox cbxHaine;
-        private System.Windows.Forms.CheckBox cbxCosmetice;
-        private System.Windows.Forms.Label lblExpenses;
-        private System.Windows.Forms.ComboBox comboBoxAfis;
-        private System.Windows.Forms.ListBox lstbxAfis;
-        private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem MenuUt;
         private System.Windows.Forms.ToolStripMenuItem iesireToolStripMenuItem;
+        private System.Windows.Forms.ListBox lstbxAfis;
     }
 }

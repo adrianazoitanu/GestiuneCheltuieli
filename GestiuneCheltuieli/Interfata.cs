@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows.Forms;
 using NivelAccesDate;
 using Librarie;
@@ -17,14 +18,18 @@ namespace GestiuneCheltuieli
     {
         IStocareData adminUtilizatori;
         ArrayList cheltuieliselectate=new ArrayList();
-
+        
         public Interfata()
         {
+             
             InitializeComponent();
-            adminUtilizatori = StocareFactory.GetAdministratorStocare();        }
-
+            adminUtilizatori = StocareFactory.GetAdministratorStocare();
+            ResetareControale();
+        }
+       
         private void btnAdauga_Click(object sender, EventArgs e)
         {
+             
             if (Valid())
             {
                 Utilizator ut = new Utilizator(txtNume.Text, txtPrenume.Text, txtParola.Text);
@@ -42,13 +47,13 @@ namespace GestiuneCheltuieli
                     ut.Bancn = bancSelectata.Value;
                 }
 
-                ut.Cheltuieli = new ArrayList();
-                ut.Cheltuieli.AddRange(cheltuieliselectate);
+                //ut.Cheltuieli = new ArrayList();
+               // ut.Cheltuieli.AddRange(cheltuieliselectate);
 
                 adminUtilizatori.AddUtilizator(ut);
                 lblMesaj.Text = "Utilizatorul a fost adaugat";
                 ResetareControale();
-                rtbAfisare.Clear();
+               
                 lstbxAfis.Items.Clear();
             }
         }
@@ -73,51 +78,53 @@ namespace GestiuneCheltuieli
             rtbEuro.Checked = false;
             rtbDolar.Checked = false;
             rtbLei.Checked = false;
-            cbxIesiri.Checked = false;
-            cbxHaine.Checked = false;
-            cbxCosmetice.Checked = false;
-            cbxCadouri.Checked = false;
-            cbxAnimal.Checked = false;
+            
             
             lblMesaj.Text = string.Empty;
         }
        
         private void btnAfiseaza_Click(object sender, EventArgs e)
         {
+            
             DateTime dataactualizata=DateTime.Now;
-            rtbAfisare.Clear();
-            lstbxAfis.Items.Clear();
-            
-            var antet = String.Format("{0,-5}{1,-35}{2,30}\n", "Id", "Nume Prenume","Venit Economii Cheltuieli");
-            rtbAfisare.AppendText(antet);
             ArrayList ut = adminUtilizatori.GetUtilizatori();
-            dataGrid.Columns.Add("informatii", "Informatii   Nume  Prenume \t\t\t\tVenituri Economii Cheltuieli ");
-           
-            dataGrid.Columns[0].DisplayIndex = 0;
-            dataGrid.Columns[0].Width=500;
-            
-            
-            foreach (Utilizator ut1 in ut)
-            {
+            lstbxAfis.Items.Clear();
 
-                var linie = String.Format("{0,5}{1,10}{2,15}{3,25}\n", ut1.IdUtilizator, ut1.NumeComplet, ut1.afisInfo(),dataactualizata);
-                rtbAfisare.AppendText(linie);
-                lstbxAfis.Items.Add(linie);
-                dataGrid.Rows.Add(linie);
-
-            }
-            if (comboBoxAfis.SelectedItem != null)
+                        var antet = String.Format("{0,-5} {1,1} {2,8} {3,10} {4,12} {5,13} {6,16}\n", "Id ", " Nume", "Prenume "," Venit", "Economii", "Cheltuieli", "Valuta");
+            bool ok = false;
+            
+            lstbxAfis.Items.Add(antet);
+            if (Validlog())
             {
-                MessageBox.Show("Ziua:" + comboBoxAfis.SelectedItem.ToString());
+                foreach (Utilizator ut1 in ut)
+                {
+                     
+                    if (txtParola.Text == ut1.Parola && txtNume.Text == ut1.Nume && txtPrenume.Text == ut1.Prenume)
+                    {
+                         
+                            var linie = String.Format("{0,-5}{1,13}{2,33}{3,27}", ut1.IdUtilizator,ut1.NumeComplet,ut1.afisInfo(),ut1.Bancn.ToString());
+
+                            lstbxAfis.Items.Add(linie);
+                            ok = true;
+                        
+                    }
+
+
+                }
+
+                if (ok == false)
+                    MessageBox.Show("Utilizator inexistent");
             }
-         
-           
+
+
+            //ResetareControale();
 
 
         }
 
         private void btnCauta_Click(object sender, EventArgs e)
         {
+            ResetareControale();
             lstbxAfis.Items.Clear();
             int n = -1;
             if(txtNume.Text==string.Empty)
@@ -130,14 +137,14 @@ namespace GestiuneCheltuieli
                 MessageBox.Show("Nu ai introdus prenumele");
                 txtPrenume.BackColor = Color.Red;
             }
-            rtbAfisare.Clear();
+             
             ArrayList ut = adminUtilizatori.GetUtilizatori();
             foreach (Utilizator ut1 in ut)
                 if (ut1.Nume == txtNume.Text && ut1.Prenume == txtPrenume.Text)
                 {
                     MessageBox.Show("Utilizator Gasit");
                     var linie = String.Format("{0,5}{1,25}\n", ut1.IdUtilizator, ut1.NumeComplet);
-                    rtbAfisare.AppendText(linie);
+                     
                     lstbxAfis.Items.Add(linie);
                     n = 0;
                 }
@@ -148,7 +155,7 @@ namespace GestiuneCheltuieli
         private void btnModifica_Click(object sender, EventArgs e)
         {
             lstbxAfis.Items.Clear();
-            rtbAfisare.Clear();
+            
             string inf = string.Empty;
             ArrayList ut = adminUtilizatori.GetUtilizatori();
             foreach (Utilizator ut1 in ut)
@@ -158,11 +165,11 @@ namespace GestiuneCheltuieli
                     ut1.Nume = txtNume.Text;
                     ut1.Prenume = txtPrenume.Text;
                     ut1.Parola = txtPrenume.Text;
-                    inf += txtVenit.Text;
+                    inf +=Convert.ToString(Convert.ToDouble(txtVenit.Text)+Convert.ToDouble(ut1.Venit()));
                     inf += " ";
-                    inf += txtEconomii.Text;
+                    inf += Convert.ToString(Convert.ToDouble(txtEconomii.Text) + Convert.ToDouble(ut1.Econom()));
                     inf += " ";
-                    inf += txtCheltuieli.Text;
+                    inf += Convert.ToString(Convert.ToDouble(ut1.Chelt()) - Convert.ToDouble(txtCheltuieli.Text));
                     ut1.SetInfo(inf);
                     Bancnota? bancSelectata = GetBancnotaSelectata();
                     if (bancSelectata.HasValue)
@@ -170,9 +177,30 @@ namespace GestiuneCheltuieli
                         ut1.Bancn = bancSelectata.Value;
                     }
                     adminUtilizatori.AddUtilizator(ut1);
-                    ResetareControale();
+                 
                 }
             }
+            ResetareControale();
+        }
+        private bool Validlog()
+        {
+            bool ok = true;
+            if (txtPrenume.Text == string.Empty || !(Char.IsLetter(txtPrenume.Text[0]))) 
+            {
+                MessageBox.Show("Introduceti prenumele pentru a intra in cont");
+                ok = false;
+            }
+            if (txtNume.Text == string.Empty || !(Char.IsLetter(txtNume.Text[0])))
+            {
+                MessageBox.Show("Introduceti numele pentru a intra in cont");
+                ok = false;
+            }
+            if (txtParola.Text == string.Empty)
+            {
+                MessageBox.Show("Introduceti parola pentru a intra in cont");
+                ok = false;
+            }
+            return ok;
         }
         private bool Valid()
         {
@@ -226,11 +254,7 @@ namespace GestiuneCheltuieli
                     MessageBox.Show("Nu ati ales valuta");
                 ok = false;
                     }
-            if(!cbxAnimal.Checked&& !cbxCadouri.Checked && !cbxCosmetice.Checked&&!cbxHaine.Checked&&!cbxIesiri.Checked)
-            {
-                MessageBox.Show("Nu ati selectat Cheltuielile");
-                ok = false;
-            }
+         
                 return ok;
         }
 
@@ -243,8 +267,7 @@ namespace GestiuneCheltuieli
         {
             ArrayList ut = adminUtilizatori.GetUtilizatori();
 
-            dataGrid.DataSource = null;
-            dataGrid.DataSource = ut;
+              
         }
 
         private void varstaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -265,6 +288,21 @@ namespace GestiuneCheltuieli
                 Application.Exit();
 
             }
+        }
+
+        private void Interfata_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrenume_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
