@@ -49,11 +49,13 @@ namespace GestiuneCheltuieli
             this.btnIesire = new System.Windows.Forms.Button();
             this.btnScade = new System.Windows.Forms.Button();
             this.btnMoneda = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNume
             // 
-            this.btnNume.Location = new System.Drawing.Point(12, 36);
+            this.btnNume.Location = new System.Drawing.Point(12, 56);
             this.btnNume.Name = "btnNume";
             this.btnNume.Size = new System.Drawing.Size(137, 34);
             this.btnNume.TabIndex = 4;
@@ -63,13 +65,14 @@ namespace GestiuneCheltuieli
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(183, 9);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(66, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 35);
+            this.label2.Size = new System.Drawing.Size(175, 35);
             this.label2.TabIndex = 5;
             this.label2.Text = "Bine ai venit!";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblmesaj
@@ -85,6 +88,8 @@ namespace GestiuneCheltuieli
             // 
             this.lstbxAfis.FormattingEnabled = true;
             this.lstbxAfis.ItemHeight = 16;
+            this.lstbxAfis.Items.AddRange(new object[] {
+            ""});
             this.lstbxAfis.Location = new System.Drawing.Point(339, 27);
             this.lstbxAfis.Name = "lstbxAfis";
             this.lstbxAfis.Size = new System.Drawing.Size(640, 388);
@@ -93,7 +98,7 @@ namespace GestiuneCheltuieli
             // 
             // btnPrenume
             // 
-            this.btnPrenume.Location = new System.Drawing.Point(12, 76);
+            this.btnPrenume.Location = new System.Drawing.Point(12, 96);
             this.btnPrenume.Name = "btnPrenume";
             this.btnPrenume.Size = new System.Drawing.Size(153, 34);
             this.btnPrenume.TabIndex = 8;
@@ -103,7 +108,7 @@ namespace GestiuneCheltuieli
             // 
             // btnEconomii
             // 
-            this.btnEconomii.Location = new System.Drawing.Point(12, 116);
+            this.btnEconomii.Location = new System.Drawing.Point(12, 136);
             this.btnEconomii.Name = "btnEconomii";
             this.btnEconomii.Size = new System.Drawing.Size(137, 34);
             this.btnEconomii.TabIndex = 9;
@@ -113,7 +118,7 @@ namespace GestiuneCheltuieli
             // 
             // btnCheltuieli
             // 
-            this.btnCheltuieli.Location = new System.Drawing.Point(12, 196);
+            this.btnCheltuieli.Location = new System.Drawing.Point(12, 216);
             this.btnCheltuieli.Name = "btnCheltuieli";
             this.btnCheltuieli.Size = new System.Drawing.Size(137, 34);
             this.btnCheltuieli.TabIndex = 10;
@@ -123,35 +128,35 @@ namespace GestiuneCheltuieli
             // 
             // txtNume
             // 
-            this.txtNume.Location = new System.Drawing.Point(171, 42);
+            this.txtNume.Location = new System.Drawing.Point(171, 62);
             this.txtNume.Name = "txtNume";
             this.txtNume.Size = new System.Drawing.Size(132, 22);
             this.txtNume.TabIndex = 12;
             // 
             // txtPrenume
             // 
-            this.txtPrenume.Location = new System.Drawing.Point(171, 82);
+            this.txtPrenume.Location = new System.Drawing.Point(171, 102);
             this.txtPrenume.Name = "txtPrenume";
             this.txtPrenume.Size = new System.Drawing.Size(132, 22);
             this.txtPrenume.TabIndex = 13;
             // 
             // txtEc
             // 
-            this.txtEc.Location = new System.Drawing.Point(171, 122);
+            this.txtEc.Location = new System.Drawing.Point(171, 142);
             this.txtEc.Name = "txtEc";
             this.txtEc.Size = new System.Drawing.Size(132, 22);
             this.txtEc.TabIndex = 14;
             // 
             // txtCh
             // 
-            this.txtCh.Location = new System.Drawing.Point(171, 202);
+            this.txtCh.Location = new System.Drawing.Point(171, 222);
             this.txtCh.Name = "txtCh";
             this.txtCh.Size = new System.Drawing.Size(132, 22);
             this.txtCh.TabIndex = 15;
             // 
             // txtVenit
             // 
-            this.txtVenit.Location = new System.Drawing.Point(171, 162);
+            this.txtVenit.Location = new System.Drawing.Point(171, 182);
             this.txtVenit.Name = "txtVenit";
             this.txtVenit.Size = new System.Drawing.Size(132, 22);
             this.txtVenit.TabIndex = 18;
@@ -159,7 +164,7 @@ namespace GestiuneCheltuieli
             // 
             // btnVenit
             // 
-            this.btnVenit.Location = new System.Drawing.Point(12, 156);
+            this.btnVenit.Location = new System.Drawing.Point(12, 176);
             this.btnVenit.Name = "btnVenit";
             this.btnVenit.Size = new System.Drawing.Size(137, 34);
             this.btnVenit.TabIndex = 17;
@@ -170,7 +175,7 @@ namespace GestiuneCheltuieli
             // rtbDolari
             // 
             this.rtbDolari.AutoSize = true;
-            this.rtbDolari.Location = new System.Drawing.Point(237, 298);
+            this.rtbDolari.Location = new System.Drawing.Point(242, 322);
             this.rtbDolari.Name = "rtbDolari";
             this.rtbDolari.Size = new System.Drawing.Size(66, 21);
             this.rtbDolari.TabIndex = 20;
@@ -181,7 +186,7 @@ namespace GestiuneCheltuieli
             // rtbLei
             // 
             this.rtbLei.AutoSize = true;
-            this.rtbLei.Location = new System.Drawing.Point(171, 298);
+            this.rtbLei.Location = new System.Drawing.Point(171, 322);
             this.rtbLei.Name = "rtbLei";
             this.rtbLei.Size = new System.Drawing.Size(48, 21);
             this.rtbLei.TabIndex = 21;
@@ -192,7 +197,7 @@ namespace GestiuneCheltuieli
             // rtbEuro
             // 
             this.rtbEuro.AutoSize = true;
-            this.rtbEuro.Location = new System.Drawing.Point(171, 335);
+            this.rtbEuro.Location = new System.Drawing.Point(171, 349);
             this.rtbEuro.Name = "rtbEuro";
             this.rtbEuro.Size = new System.Drawing.Size(59, 21);
             this.rtbEuro.TabIndex = 22;
@@ -202,7 +207,7 @@ namespace GestiuneCheltuieli
             // 
             // btnSterge
             // 
-            this.btnSterge.Location = new System.Drawing.Point(12, 381);
+            this.btnSterge.Location = new System.Drawing.Point(12, 392);
             this.btnSterge.Name = "btnSterge";
             this.btnSterge.Size = new System.Drawing.Size(137, 34);
             this.btnSterge.TabIndex = 23;
@@ -212,7 +217,7 @@ namespace GestiuneCheltuieli
             // 
             // btnIesire
             // 
-            this.btnIesire.Location = new System.Drawing.Point(171, 381);
+            this.btnIesire.Location = new System.Drawing.Point(171, 392);
             this.btnIesire.Name = "btnIesire";
             this.btnIesire.Size = new System.Drawing.Size(137, 34);
             this.btnIesire.TabIndex = 24;
@@ -222,7 +227,7 @@ namespace GestiuneCheltuieli
             // 
             // btnScade
             // 
-            this.btnScade.Location = new System.Drawing.Point(12, 249);
+            this.btnScade.Location = new System.Drawing.Point(12, 269);
             this.btnScade.Name = "btnScade";
             this.btnScade.Size = new System.Drawing.Size(266, 34);
             this.btnScade.TabIndex = 25;
@@ -232,13 +237,22 @@ namespace GestiuneCheltuieli
             // 
             // btnMoneda
             // 
-            this.btnMoneda.Location = new System.Drawing.Point(12, 291);
+            this.btnMoneda.Location = new System.Drawing.Point(12, 322);
             this.btnMoneda.Name = "btnMoneda";
             this.btnMoneda.Size = new System.Drawing.Size(137, 34);
             this.btnMoneda.TabIndex = 26;
             this.btnMoneda.Text = "Schimba moneda";
             this.btnMoneda.UseVisualStyleBackColor = true;
             this.btnMoneda.Click += new System.EventHandler(this.btnMoneda_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.Location = new System.Drawing.Point(1, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(990, 451);
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
             // 
             // Logare
             // 
@@ -265,9 +279,11 @@ namespace GestiuneCheltuieli
             this.Controls.Add(this.lblmesaj);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnNume);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "Logare";
             this.Text = "Logare";
             this.Load += new System.EventHandler(this.Logare_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +310,6 @@ namespace GestiuneCheltuieli
         private System.Windows.Forms.Button btnIesire;
         private System.Windows.Forms.Button btnScade;
         private System.Windows.Forms.Button btnMoneda;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -51,12 +51,14 @@ namespace GestiuneCheltuieli
             this.MenuUt = new System.Windows.Forms.ToolStripMenuItem();
             this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAdauga = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAfiseaza
             // 
-            this.btnAfiseaza.Location = new System.Drawing.Point(303, 76);
+            this.btnAfiseaza.Location = new System.Drawing.Point(12, 193);
             this.btnAfiseaza.Name = "btnAfiseaza";
             this.btnAfiseaza.Size = new System.Drawing.Size(150, 68);
             this.btnAfiseaza.TabIndex = 33;
@@ -66,28 +68,28 @@ namespace GestiuneCheltuieli
             // 
             // txtCheltuieli
             // 
-            this.txtCheltuieli.Location = new System.Drawing.Point(123, 205);
+            this.txtCheltuieli.Location = new System.Drawing.Point(680, 191);
             this.txtCheltuieli.Name = "txtCheltuieli";
             this.txtCheltuieli.Size = new System.Drawing.Size(100, 22);
             this.txtCheltuieli.TabIndex = 32;
             // 
             // txtEconomii
             // 
-            this.txtEconomii.Location = new System.Drawing.Point(123, 171);
+            this.txtEconomii.Location = new System.Drawing.Point(680, 157);
             this.txtEconomii.Name = "txtEconomii";
             this.txtEconomii.Size = new System.Drawing.Size(100, 22);
             this.txtEconomii.TabIndex = 31;
             // 
             // txtVenit
             // 
-            this.txtVenit.Location = new System.Drawing.Point(123, 139);
+            this.txtVenit.Location = new System.Drawing.Point(680, 125);
             this.txtVenit.Name = "txtVenit";
             this.txtVenit.Size = new System.Drawing.Size(100, 22);
             this.txtVenit.TabIndex = 30;
             // 
             // txtPrenume
             // 
-            this.txtPrenume.Location = new System.Drawing.Point(123, 99);
+            this.txtPrenume.Location = new System.Drawing.Point(680, 85);
             this.txtPrenume.Name = "txtPrenume";
             this.txtPrenume.Size = new System.Drawing.Size(100, 22);
             this.txtPrenume.TabIndex = 29;
@@ -95,7 +97,7 @@ namespace GestiuneCheltuieli
             // 
             // txtNume
             // 
-            this.txtNume.Location = new System.Drawing.Point(123, 62);
+            this.txtNume.Location = new System.Drawing.Point(680, 48);
             this.txtNume.Name = "txtNume";
             this.txtNume.Size = new System.Drawing.Size(100, 22);
             this.txtNume.TabIndex = 28;
@@ -103,7 +105,7 @@ namespace GestiuneCheltuieli
             // rtbDolar
             // 
             this.rtbDolar.AutoSize = true;
-            this.rtbDolar.Location = new System.Drawing.Point(110, 336);
+            this.rtbDolar.Location = new System.Drawing.Point(667, 322);
             this.rtbDolar.Name = "rtbDolar";
             this.rtbDolar.Size = new System.Drawing.Size(63, 21);
             this.rtbDolar.TabIndex = 27;
@@ -113,7 +115,7 @@ namespace GestiuneCheltuieli
             // rtbLei
             // 
             this.rtbLei.AutoSize = true;
-            this.rtbLei.Location = new System.Drawing.Point(110, 309);
+            this.rtbLei.Location = new System.Drawing.Point(667, 295);
             this.rtbLei.Name = "rtbLei";
             this.rtbLei.Size = new System.Drawing.Size(48, 21);
             this.rtbLei.TabIndex = 26;
@@ -124,7 +126,7 @@ namespace GestiuneCheltuieli
             // 
             this.rtbEuro.AutoSize = true;
             this.rtbEuro.Checked = true;
-            this.rtbEuro.Location = new System.Drawing.Point(110, 282);
+            this.rtbEuro.Location = new System.Drawing.Point(667, 268);
             this.rtbEuro.Name = "rtbEuro";
             this.rtbEuro.Size = new System.Drawing.Size(59, 21);
             this.rtbEuro.TabIndex = 25;
@@ -135,7 +137,7 @@ namespace GestiuneCheltuieli
             // lblValuta
             // 
             this.lblValuta.AutoSize = true;
-            this.lblValuta.Location = new System.Drawing.Point(49, 259);
+            this.lblValuta.Location = new System.Drawing.Point(606, 245);
             this.lblValuta.Name = "lblValuta";
             this.lblValuta.Size = new System.Drawing.Size(48, 17);
             this.lblValuta.TabIndex = 24;
@@ -144,7 +146,7 @@ namespace GestiuneCheltuieli
             // lblCheltuieli
             // 
             this.lblCheltuieli.AutoSize = true;
-            this.lblCheltuieli.Location = new System.Drawing.Point(45, 205);
+            this.lblCheltuieli.Location = new System.Drawing.Point(602, 191);
             this.lblCheltuieli.Name = "lblCheltuieli";
             this.lblCheltuieli.Size = new System.Drawing.Size(65, 17);
             this.lblCheltuieli.TabIndex = 23;
@@ -153,7 +155,7 @@ namespace GestiuneCheltuieli
             // lblEconomii
             // 
             this.lblEconomii.AutoSize = true;
-            this.lblEconomii.Location = new System.Drawing.Point(45, 171);
+            this.lblEconomii.Location = new System.Drawing.Point(602, 157);
             this.lblEconomii.Name = "lblEconomii";
             this.lblEconomii.Size = new System.Drawing.Size(65, 17);
             this.lblEconomii.TabIndex = 22;
@@ -162,7 +164,7 @@ namespace GestiuneCheltuieli
             // lblVenit
             // 
             this.lblVenit.AutoSize = true;
-            this.lblVenit.Location = new System.Drawing.Point(45, 139);
+            this.lblVenit.Location = new System.Drawing.Point(602, 125);
             this.lblVenit.Name = "lblVenit";
             this.lblVenit.Size = new System.Drawing.Size(40, 17);
             this.lblVenit.TabIndex = 21;
@@ -171,7 +173,7 @@ namespace GestiuneCheltuieli
             // lblPrenume
             // 
             this.lblPrenume.AutoSize = true;
-            this.lblPrenume.Location = new System.Drawing.Point(45, 102);
+            this.lblPrenume.Location = new System.Drawing.Point(602, 88);
             this.lblPrenume.Name = "lblPrenume";
             this.lblPrenume.Size = new System.Drawing.Size(65, 17);
             this.lblPrenume.TabIndex = 20;
@@ -180,7 +182,7 @@ namespace GestiuneCheltuieli
             // lblNume
             // 
             this.lblNume.AutoSize = true;
-            this.lblNume.Location = new System.Drawing.Point(45, 62);
+            this.lblNume.Location = new System.Drawing.Point(602, 48);
             this.lblNume.Name = "lblNume";
             this.lblNume.Size = new System.Drawing.Size(45, 17);
             this.lblNume.TabIndex = 19;
@@ -189,7 +191,7 @@ namespace GestiuneCheltuieli
             // lblParola
             // 
             this.lblParola.AutoSize = true;
-            this.lblParola.Location = new System.Drawing.Point(45, 234);
+            this.lblParola.Location = new System.Drawing.Point(602, 220);
             this.lblParola.Name = "lblParola";
             this.lblParola.Size = new System.Drawing.Size(49, 17);
             this.lblParola.TabIndex = 38;
@@ -198,7 +200,7 @@ namespace GestiuneCheltuieli
             // 
             // txtParola
             // 
-            this.txtParola.Location = new System.Drawing.Point(123, 234);
+            this.txtParola.Location = new System.Drawing.Point(680, 220);
             this.txtParola.Name = "txtParola";
             this.txtParola.Size = new System.Drawing.Size(100, 22);
             this.txtParola.TabIndex = 39;
@@ -218,7 +220,7 @@ namespace GestiuneCheltuieli
             this.MenuUt});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(851, 28);
             this.menuStrip1.TabIndex = 51;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -233,13 +235,13 @@ namespace GestiuneCheltuieli
             // iesireToolStripMenuItem
             // 
             this.iesireToolStripMenuItem.Name = "iesireToolStripMenuItem";
-            this.iesireToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.iesireToolStripMenuItem.Size = new System.Drawing.Size(127, 26);
             this.iesireToolStripMenuItem.Text = "Iesire";
             this.iesireToolStripMenuItem.Click += new System.EventHandler(this.iesireToolStripMenuItem_Click);
             // 
             // btnAdauga
             // 
-            this.btnAdauga.Location = new System.Drawing.Point(496, 76);
+            this.btnAdauga.Location = new System.Drawing.Point(12, 112);
             this.btnAdauga.Name = "btnAdauga";
             this.btnAdauga.Size = new System.Drawing.Size(150, 68);
             this.btnAdauga.TabIndex = 52;
@@ -247,11 +249,21 @@ namespace GestiuneCheltuieli
             this.btnAdauga.UseVisualStyleBackColor = true;
             this.btnAdauga.Click += new System.EventHandler(this.btnAdauga_Click_1);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestiuneCheltuieli.Properties.Resources.lacat;
+            this.pictureBox1.Location = new System.Drawing.Point(86, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(432, 438);
+            this.pictureBox1.TabIndex = 53;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Interfata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(851, 450);
             this.Controls.Add(this.btnAdauga);
             this.Controls.Add(this.lblMesaj);
             this.Controls.Add(this.txtParola);
@@ -272,12 +284,14 @@ namespace GestiuneCheltuieli
             this.Controls.Add(this.lblPrenume);
             this.Controls.Add(this.lblNume);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pictureBox1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Interfata";
             this.Text = "Interfata";
             this.Load += new System.EventHandler(this.Interfata_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,5 +320,6 @@ namespace GestiuneCheltuieli
         private System.Windows.Forms.ToolStripMenuItem MenuUt;
         private System.Windows.Forms.ToolStripMenuItem iesireToolStripMenuItem;
         private System.Windows.Forms.Button btnAdauga;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
