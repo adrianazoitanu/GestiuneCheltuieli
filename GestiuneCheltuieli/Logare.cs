@@ -41,21 +41,27 @@ namespace GestiuneCheltuieli
  
         private void btnL_Click(object sender, EventArgs e)
         {
-            string inf = string.Empty;
+            if (txtNume.Text == string.Empty || !(Char.IsLetter(txtNume.Text[0])))
+            {
+                MessageBox.Show("Date incorecte");
             
- 
-             
-             
-                    Inf.Nume = txtNume.Text;
-                    
-                    var linie = String.Format("{0,-5} {1,5} \t{2,40} {3,20}",Inf.IdUtilizator,Inf.NumeComplet, Inf.afisInfo(),Inf.Bancn);
-                    lstbxAfis.Items.Add(linie);
-            
-            adminUtilizatori.AddUtilizator(Inf);
+            }
+            else
+            { string inf = string.Empty;
 
-            Reset();
-               
-            
+
+
+
+                Inf.Nume = txtNume.Text;
+
+                var linie = String.Format("{0,-5} {1,5} \t{2,40} {3,20}", Inf.IdUtilizator, Inf.NumeComplet, Inf.afisInfo(), Inf.Bancn);
+                lstbxAfis.Items.Add(linie);
+
+                adminUtilizatori.AddUtilizator(Inf);
+
+                Reset();
+
+            }
         }
         private Bancnota? GetBancnotaSelectata()
         {
@@ -69,8 +75,7 @@ namespace GestiuneCheltuieli
         }
         private void lblmesaj_Click(object sender, EventArgs e)
         {
-            lblmesaj.Text = Inf.NumeComplet;
-            lblmesaj.Text = "Adauga";
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,17 +85,25 @@ namespace GestiuneCheltuieli
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (txtVenit.Text == string.Empty || !double.TryParse(txtVenit.Text, out var val1))
+            {
+                MessageBox.Show("Date incorecte");
+                
+            }
+            else
+            { 
             string info = string.Empty;
-            info += txtVenit.Text;
-            info += " ";
-            info +=Inf.Econom();
-            info += " ";
-            info += Inf.Chelt();
-            Inf.SetInfo(info);
+                info += txtVenit.Text;
+                info += " ";
+                info += Inf.Econom();
+                info += " ";
+                info += Inf.Chelt();
+                Inf.SetInfo(info);
 
-            Afis();
-            adminUtilizatori.AddUtilizator(Inf);
-            Reset();
+                Afis();
+                adminUtilizatori.AddUtilizator(Inf);
+                Reset();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -100,13 +113,20 @@ namespace GestiuneCheltuieli
 
         private void btnPrenume_Click(object sender, EventArgs e)
         {
-           
+            if (txtPrenume.Text == string.Empty || !(Char.IsLetter(txtPrenume.Text[0])))
+            {
+                MessageBox.Show("Date incorecte");
+               
+            }
+            else
+            { 
             Inf.Prenume = txtPrenume.Text;
 
 
-            Afis();
-            adminUtilizatori.AddUtilizator(Inf);
-            Reset();
+                Afis();
+                adminUtilizatori.AddUtilizator(Inf);
+                Reset();
+            }
 
         }
         private void Antet()
@@ -124,21 +144,28 @@ namespace GestiuneCheltuieli
         }
         private void btnEconomii_Click(object sender, EventArgs e)
         {
-           
-            string info=string.Empty;
-            info += Inf.Venit();
-            info += " ";
-            info += Convert.ToString(Convert.ToDouble(txtEc.Text) + Convert.ToDouble(Inf.Econom()));
-            info += " ";
-            info += Inf.Chelt();
-            Inf.SetInfo(info);
+            if (txtEc.Text == string.Empty || !double.TryParse(txtEc.Text, out var val))
+            {
+                MessageBox.Show("Date incorecte");
+               
+            }
+            else
+            { 
+            string info = string.Empty;
+                info += Inf.Venit();
+                info += " ";
+                info += Convert.ToString(Convert.ToDouble(txtEc.Text) + Convert.ToDouble(Inf.Econom()));
+                info += " ";
+                info += Inf.Chelt();
+                Inf.SetInfo(info);
 
-            Afis();
-            adminUtilizatori.AddUtilizator(Inf);
-            Reset();
+                Afis();
+                adminUtilizatori.AddUtilizator(Inf);
+                Reset();
+                { }
+            }
 
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -161,17 +188,25 @@ namespace GestiuneCheltuieli
 
         private void btnCheltuieli_Click(object sender, EventArgs e)
         {
+            if (txtCh.Text == string.Empty || !double.TryParse(txtCh.Text, out var val3))
+            {
+                MessageBox.Show("Date incorecte");
+               
+            }else
+            { 
             string info = string.Empty;
-            info += Inf.Venit();
-            info += " ";
-            info += Inf.Econom();
-            info += " ";
-            info += Convert.ToString(Convert.ToDouble(Inf.Chelt()) + Convert.ToDouble(txtCh.Text));
-            Inf.SetInfo(info);
+                info += Inf.Venit();
+                info += " ";
+                info += Inf.Econom();
+                info += " ";
+                info += Convert.ToString(Convert.ToDouble(Inf.Chelt()) + Convert.ToDouble(txtCh.Text));
+                Inf.SetInfo(info);
 
-            Afis();
-            adminUtilizatori.AddUtilizator(Inf);
-            Reset();
+                Afis();
+                adminUtilizatori.AddUtilizator(Inf);
+                Reset();
+            }
+
         }
 
         private void btnScade_Click(object sender, EventArgs e)
@@ -179,24 +214,26 @@ namespace GestiuneCheltuieli
             string info = string.Empty;
             info += Inf.Venit();
             info += " ";
+            
             if (Convert.ToDouble(Inf.Econom()) >= Convert.ToDouble(Inf.Chelt()))
-            {
-                info += Convert.ToString(Convert.ToDouble(Inf.Econom()) - Convert.ToDouble(Inf.Chelt()));
-                info += " ";
-                info += "0.0001";
+                {
+                    info += Convert.ToString(Convert.ToDouble(Inf.Econom()) - Convert.ToDouble(Inf.Chelt()));
+                    info += " ";
+                    info += "0.0001";
+                }
+                else
+                {
+                    MessageBox.Show("Nu aveti suficiente economii");
+                    info += Inf.Econom();
+                    info += " ";
+                    info += Inf.Chelt();
+                }
+                Inf.SetInfo(info);
+                Afis();
+                adminUtilizatori.AddUtilizator(Inf);
+                Reset();
             }
-            else
-            {
-                MessageBox.Show("Nu aveti suficiente economii");
-                info += Inf.Econom();
-                info += " ";
-                info += Inf.Chelt();
-            }
-            Inf.SetInfo(info);
-            Afis();
-            adminUtilizatori.AddUtilizator(Inf);
-            Reset();
-        }
+        
         private void Reset()
         {
             
@@ -205,36 +242,7 @@ namespace GestiuneCheltuieli
             rtbEuro.Checked = false;
             rtbLei.Checked = false;
         }
-        private bool Valid()
-        {
-            bool ok = true;
-            if(txtCh.Text==string.Empty || !double.TryParse(txtCh.Text, out var val3))
-            {
-                MessageBox.Show("Date incorecte");
-                ok = false;
-            }
-            if (txtEc.Text == string.Empty || !double.TryParse(txtEc.Text, out var val))
-            {
-                MessageBox.Show("Date incorecte");
-                ok = false;
-            }
-            if (txtVenit.Text == string.Empty || !double.TryParse(txtVenit.Text, out var val1))
-            {
-                MessageBox.Show("Date incorecte");
-                ok = false;
-            }
-            if (txtPrenume.Text == string.Empty || !(Char.IsLetter(txtPrenume.Text[0])))
-            {
-                MessageBox.Show("Date incorecte");
-                ok = false;
-            }
-            if (txtNume.Text == string.Empty || !(Char.IsLetter(txtNume.Text[0])))
-            {
-                MessageBox.Show("Date incorecte");
-                ok = false;
-            }
-            return ok;
-        }
+      
 
         private void btnMoneda_Click(object sender, EventArgs e)
         {

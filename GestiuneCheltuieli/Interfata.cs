@@ -213,7 +213,7 @@ namespace GestiuneCheltuieli
             if (txtParola.Text == string.Empty)
             {
                 MessageBox.Show("Nu ati introdus parola");
-                txtParola.BackColor = Color.Red;
+                
                 ok = false;
             }
        
