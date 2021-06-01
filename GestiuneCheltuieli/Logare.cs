@@ -239,7 +239,7 @@ namespace GestiuneCheltuieli
 
         private void btnMoneda_Click(object sender, EventArgs e)
         {
-            if (rtbDolari.Checked == false && rtbEuro.Checked == false && !rtbLei.Checked == false)
+            if (rtbDolari.Checked == true || rtbEuro.Checked == true || rtbLei.Checked == true)
             {
                 if (rtbDolari.Checked && Inf.Bancn == Bancnota.Euro)
                 {
