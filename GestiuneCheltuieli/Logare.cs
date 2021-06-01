@@ -44,9 +44,7 @@ namespace GestiuneCheltuieli
             string inf = string.Empty;
             
  
-
-            var antet = String.Format("{0,-5} {1,1} {2,8} {3,10} {4,12} {5,13} {6,16}\n", "Id ", " Nume", "Prenume ", " Venit", "Economii", "Cheltuieli", "Valuta");
-            lstbxAfis.Items.Add(antet);
+             
              
                     Inf.Nume = txtNume.Text;
                     
