@@ -55,6 +55,12 @@
     <Compile Include="Interfata.Designer.cs">
       <DependentUpon>Interfata.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logare.Designer.cs">
+      <DependentUpon>Logare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StocareFactory.cs" />
@@ -75,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Interfata.resx">
       <DependentUpon>Interfata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logare.resx">
+      <DependentUpon>Logare.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

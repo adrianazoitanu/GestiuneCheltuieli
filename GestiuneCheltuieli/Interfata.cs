@@ -30,32 +30,7 @@ namespace GestiuneCheltuieli
         private void btnAdauga_Click(object sender, EventArgs e)
         {
              
-            if (Valid())
-            {
-                Utilizator ut = new Utilizator(txtNume.Text, txtPrenume.Text, txtParola.Text);
-                string inf = string.Empty;
-                inf += txtVenit.Text;
-                inf += " ";
-                inf += txtEconomii.Text;
-                inf += " ";
-                inf += txtCheltuieli.Text;
-                ut.SetInfo(inf);
-
-                Bancnota? bancSelectata = GetBancnotaSelectata();
-                if (bancSelectata.HasValue)
-                {
-                    ut.Bancn = bancSelectata.Value;
-                }
-
-                //ut.Cheltuieli = new ArrayList();
-               // ut.Cheltuieli.AddRange(cheltuieliselectate);
-
-                adminUtilizatori.AddUtilizator(ut);
-                lblMesaj.Text = "Utilizatorul a fost adaugat";
-                ResetareControale();
-               
-                lstbxAfis.Items.Clear();
-            }
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -82,31 +57,26 @@ namespace GestiuneCheltuieli
             
             lblMesaj.Text = string.Empty;
         }
-       
+
         private void btnAfiseaza_Click(object sender, EventArgs e)
         {
-            
-            DateTime dataactualizata=DateTime.Now;
-            ArrayList ut = adminUtilizatori.GetUtilizatori();
-            lstbxAfis.Items.Clear();
-
-                        var antet = String.Format("{0,-5} {1,1} {2,8} {3,10} {4,12} {5,13} {6,16}\n", "Id ", " Nume", "Prenume "," Venit", "Economii", "Cheltuieli", "Valuta");
             bool ok = false;
-            
-            lstbxAfis.Items.Add(antet);
+            ArrayList ut = adminUtilizatori.GetUtilizatori();
             if (Validlog())
             {
                 foreach (Utilizator ut1 in ut)
                 {
-                     
+
                     if (txtParola.Text == ut1.Parola && txtNume.Text == ut1.Nume && txtPrenume.Text == ut1.Prenume)
                     {
-                         
-                            var linie = String.Format("{0,-5}{1,13}{2,33}{3,27}", ut1.IdUtilizator,ut1.NumeComplet,ut1.afisInfo(),ut1.Bancn.ToString());
 
-                            lstbxAfis.Items.Add(linie);
-                            ok = true;
-                        
+                        using (Logare form = new Logare(ut1))
+                        {
+                            form.ShowDialog();
+                           
+                        }
+                        ok = true;
+
                     }
 
 
@@ -114,18 +84,16 @@ namespace GestiuneCheltuieli
 
                 if (ok == false)
                     MessageBox.Show("Utilizator inexistent");
+
+           
+
             }
 
-
-            //ResetareControale();
-
-
         }
-
         private void btnCauta_Click(object sender, EventArgs e)
         {
             ResetareControale();
-            lstbxAfis.Items.Clear();
+            //lstbxAfis.Items.Clear();
             int n = -1;
             if(txtNume.Text==string.Empty)
             {
@@ -145,7 +113,7 @@ namespace GestiuneCheltuieli
                     MessageBox.Show("Utilizator Gasit");
                     var linie = String.Format("{0,5}{1,25}\n", ut1.IdUtilizator, ut1.NumeComplet);
                      
-                    lstbxAfis.Items.Add(linie);
+                    //lstbxAfis.Items.Add(linie);
                     n = 0;
                 }
             if(n==-1)
@@ -154,7 +122,7 @@ namespace GestiuneCheltuieli
 
         private void btnModifica_Click(object sender, EventArgs e)
         {
-            lstbxAfis.Items.Clear();
+            //lstbxAfis.Items.Clear();
             
             string inf = string.Empty;
             ArrayList ut = adminUtilizatori.GetUtilizatori();
@@ -205,40 +173,40 @@ namespace GestiuneCheltuieli
         private bool Valid()
         {
             bool ok = true;
-            if (txtNume.Text == string.Empty)
+            if (txtNume.Text == string.Empty || !(Char.IsLetter(txtNume.Text[0])))
             {
                 MessageBox.Show("Nu ati introdus numele");
-                txtNume.BackColor = Color.Red;
+               
                 ok = false;
             }
           
            
             
-            if (txtPrenume.Text == string.Empty)
+            if (txtPrenume.Text == string.Empty || !(Char.IsLetter(txtPrenume.Text[0])))
             {
                 MessageBox.Show("Nu ati introdus prenumele");
-                txtPrenume.BackColor = Color.Red;
+          
                 ok = false;
             }
             
-            if (txtEconomii.Text == string.Empty)
+            if (txtEconomii.Text == string.Empty || !txtEconomii.Text.All(Char.IsDigit))
             {
                 MessageBox.Show("Nu ati introdus economiile");
-                txtEconomii.BackColor = Color.Red;
+              
                 ok = false;
             }
           
-            if (txtVenit.Text == string.Empty)
+            if (txtVenit.Text == string.Empty || !txtVenit.Text.All(Char.IsDigit))
             {
                 MessageBox.Show("Nu ati introdus venitul");
-                txtVenit.BackColor = Color.Red;
+   
                 ok = false;
             }
            
-            if (txtCheltuieli.Text == string.Empty)
+            if (txtCheltuieli.Text == string.Empty || !txtCheltuieli.Text.All(Char.IsDigit))
             {
                 MessageBox.Show("Nu ati introdus cheltuielile");
-                txtCheltuieli.BackColor = Color.Red;
+               
                 ok = false;
             }
           
@@ -303,6 +271,37 @@ namespace GestiuneCheltuieli
         private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void btnAdauga_Click_1(object sender, EventArgs e)
+        {
+            if (Valid())
+            {
+                Utilizator ut = new Utilizator(txtNume.Text, txtPrenume.Text, txtParola.Text);
+                string inf = string.Empty;
+                inf += txtVenit.Text;
+                inf += " ";
+                inf += txtEconomii.Text;
+                inf += " ";
+                inf += txtCheltuieli.Text;
+                ut.SetInfo(inf);
+
+                Bancnota? bancSelectata = GetBancnotaSelectata();
+                if (bancSelectata.HasValue)
+                {
+                    ut.Bancn = bancSelectata.Value;
+                }
+ 
+                adminUtilizatori.AddUtilizator(ut);
+                lblMesaj.Text = "Utilizatorul a fost adaugat";
+                using (Logare form1 = new Logare(ut))
+                {
+                    form1.ShowDialog();
+                }
+                ResetareControale();
+
+                
+            }
         }
     }
 }

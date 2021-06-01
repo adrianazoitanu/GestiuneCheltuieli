@@ -31,7 +31,7 @@ namespace Librarie
         public Bancnota Bancn { get; set; }
         public int IdUtilizator { get; set; }
         public ArrayList Cheltuieli { get; set; }
-        public string NumeComplet { get { return Nume + "    " + Prenume; } }
+        public string NumeComplet { get { return Nume + "         " + Prenume; } }
         public Utilizator()
         {
             Nume = Prenume = Parola = String.Empty;
@@ -60,7 +60,7 @@ namespace Librarie
             string sInfo = "Nu exista";
             if (informatii != null)
             {
-                sInfo = string.Join("       ", informatii);
+                sInfo = string.Join("         ", informatii);
              //   sInfo = string.Join(" ", Bancn);
             }
             
