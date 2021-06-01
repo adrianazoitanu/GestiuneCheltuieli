@@ -43,8 +43,7 @@ namespace GestiuneCheltuieli
         {
             string inf = string.Empty;
             
-
-            lstbxAfis.Items.Clear();
+ 
 
             var antet = String.Format("{0,-5} {1,1} {2,8} {3,10} {4,12} {5,13} {6,16}\n", "Id ", " Nume", "Prenume ", " Venit", "Economii", "Cheltuieli", "Valuta");
             lstbxAfis.Items.Add(antet);
@@ -55,8 +54,8 @@ namespace GestiuneCheltuieli
                     lstbxAfis.Items.Add(linie);
             
             adminUtilizatori.AddUtilizator(Inf);
-           
-               
+
+            Reset();
                
             
         }
@@ -150,6 +149,8 @@ namespace GestiuneCheltuieli
         private void btnSterge_Click(object sender, EventArgs e)
         {
             lstbxAfis.Items.Clear();
+            Antet();
+            Afis();
         }
 
         private void btnIesire_Click(object sender, EventArgs e)
@@ -209,17 +210,17 @@ namespace GestiuneCheltuieli
         private bool Valid()
         {
             bool ok = true;
-            if(txtCh.Text==string.Empty || !txtCh.Text.All(Char.IsDigit))
+            if(txtCh.Text==string.Empty || !double.TryParse(txtCh.Text, out var val3))
             {
                 MessageBox.Show("Date incorecte");
                 ok = false;
             }
-            if (txtEc.Text == string.Empty || !txtEc.Text.All(Char.IsDigit))
+            if (txtEc.Text == string.Empty || !double.TryParse(txtEc.Text, out var val))
             {
                 MessageBox.Show("Date incorecte");
                 ok = false;
             }
-            if (txtVenit.Text == string.Empty || !txtVenit.Text.All(Char.IsDigit))
+            if (txtVenit.Text == string.Empty || !double.TryParse(txtVenit.Text, out var val1))
             {
                 MessageBox.Show("Date incorecte");
                 ok = false;

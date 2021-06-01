@@ -188,22 +188,22 @@ namespace GestiuneCheltuieli
           
                 ok = false;
             }
-            
-            if (txtEconomii.Text == string.Empty || !txtEconomii.Text.All(Char.IsDigit))
+            double val = 0;
+            if (txtEconomii.Text == string.Empty ||!double.TryParse(txtEconomii.Text,out val) )
             {
                 MessageBox.Show("Nu ati introdus economiile");
               
                 ok = false;
             }
           
-            if (txtVenit.Text == string.Empty || !txtVenit.Text.All(Char.IsDigit))
+            if (txtVenit.Text == string.Empty || !double.TryParse(txtVenit.Text, out val))
             {
                 MessageBox.Show("Nu ati introdus venitul");
    
                 ok = false;
             }
            
-            if (txtCheltuieli.Text == string.Empty || !txtCheltuieli.Text.All(Char.IsDigit))
+            if (txtCheltuieli.Text == string.Empty|| !double.TryParse(txtCheltuieli.Text, out val))
             {
                 MessageBox.Show("Nu ati introdus cheltuielile");
                
